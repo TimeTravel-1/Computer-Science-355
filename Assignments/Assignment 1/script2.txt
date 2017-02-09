@@ -1,0 +1,76 @@
+Script started on Wed Sep 30 16:18:36 2015
+sh-3.00$ /usr/local/bin/gdb --version
+GNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10".
+sh-3.00$ /usr/local/bin/gdb assign1
+[?1034hGNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10"...
+(no debugging symbols found)
+(gdb) r
+Starting program: /home/ugb/david.ng2/Desktop/assign1 
+(no debugging symbols found)
+(no debugging symbols found)
+(no debugging symbols found)
+The value of x is: -2   The value of y is: -69  The current minimum is: -69
+The value of x is: -1   The value of y is: 9    The current minimum is: -69
+The value of x is: 0    The value of y is: 39   The current minimum is: -69
+The value of x is: 1    The value of y is: 33   The current minimum is: -69
+The value of x is: 2    The value of y is: 3    The current minimum is: -69
+The value of x is: 3    The value of y is: -39  The current minimum is: -69
+The value of x is: 4    The value of y is: -81  The current minimum is: -81
+The value of x is: 5    The value of y is: -111 The current minimum is: -111
+The value of x is: 6    The value of y is: -117 The current minimum is: -117
+The value of x is: 7    The value of y is: -87  The current minimum is: -117
+The value of x is: 8    The value of y is: -9   The current minimum is: -117
+The value of x is: 9    The value of y is: 129  The current minimum is: -117
+The value of x is: 10   The value of y is: 339  The current minimum is: -117
+The value of x is: 11   The value of y is: 633  The current minimum is: -117
+The minimum over the range is: -117
+
+Program exited with code 044.
+(gdb) b done
+Breakpoint 1 at 0x10790
+(gdb) r
+Starting program: /home/ugb/david.ng2/Desktop/assign1 
+[New LWP    1        ]
+(no debugging symbols found)
+(no debugging symbols found)
+(no debugging symbols found)
+The value of x is: -2   The value of y is: -69  The current minimum is: -69
+The value of x is: -1   The value of y is: 9    The current minimum is: -69
+The value of x is: 0    The value of y is: 39   The current minimum is: -69
+The value of x is: 1    The value of y is: 33   The current minimum is: -69
+The value of x is: 2    The value of y is: 3    The current minimum is: -69
+The value of x is: 3    The value of y is: -39  The current minimum is: -69
+The value of x is: 4    The value of y is: -81  The current minimum is: -81
+The value of x is: 5    The value of y is: -111 The current minimum is: -111
+The value of x is: 6    The value of y is: -117 The current minimum is: -117
+The value of x is: 7    The value of y is: -87  The current minimum is: -117
+The value of x is: 8    The value of y is: -9   The current minimum is: -117
+The value of x is: 9    The value of y is: 129  The current minimum is: -117
+The value of x is: 10   The value of y is: 339  The current minimum is: -117
+The value of x is: 11   The value of y is: 633  The current minimum is: -117
+
+Breakpoint 1, 0x00010790 in done ()
+(gdb) p $l0
+$1 = -117
+(gdb) c
+Continuing.
+The minimum over the range is: -117
+
+Program exited with code 044.
+(gdb) quit exit      t
+sh-3.00$ exit
+exit
+
+script done on Wed Sep 30 16:20:07 2015

@@ -1,0 +1,1293 @@
+Script started on Tue Oct 27 18:36:09 2015
+sh-3.00$ . /usr. /local/bin/gdb -v
+GNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10".
+sh-3.00$ /user  r/local/bin/gdb a3
+[?1034hGNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10"...
+(no debugging symbols found)
+(gdb) r
+Starting program: /home/ugb/david.ng2/Documents/a3 
+(no debugging symbols found)
+(no debugging symbols found)
+v[0]: 198
+v[1]: 126
+v[2]: 129
+v[3]: 107
+v[4]: 75
+v[5]: 251
+v[6]: 226
+v[7]: 251
+v[8]: 84
+v[9]: 246
+v[10]: 189
+v[11]: 223
+v[12]: 124
+v[13]: 28
+v[14]: 225
+v[15]: 135
+v[16]: 1
+v[17]: 191
+v[18]: 49
+v[19]: 222
+v[20]: 86
+v[21]: 114
+v[22]: 15
+v[23]: 71
+v[24]: 103
+v[25]: 102
+v[26]: 135
+v[27]: 89
+v[28]: 170
+v[29]: 136
+v[30]: 60
+v[31]: 89
+v[32]: 234
+v[33]: 86
+v[34]: 19
+v[35]: 123
+v[36]: 210
+v[37]: 133
+v[38]: 161
+v[39]: 216
+(no debugging symbols found)
+
+Sorted array:
+v[0]: 1
+v[1]: 15
+v[2]: 19
+v[3]: 28
+v[4]: 49
+v[5]: 60
+v[6]: 71
+v[7]: 75
+v[8]: 84
+v[9]: 86
+v[10]: 86
+v[11]: 89
+v[12]: 89
+v[13]: 102
+v[14]: 103
+v[15]: 107
+v[16]: 114
+v[17]: 123
+v[18]: 124
+v[19]: 126
+v[20]: 129
+v[21]: 133
+v[22]: 135
+v[23]: 135
+v[24]: 136
+v[25]: 161
+v[26]: 170
+v[27]: 189
+v[28]: 191
+v[29]: 198
+v[30]: 210
+v[31]: 216
+v[32]: 222
+v[33]: 223
+v[34]: 225
+v[35]: 226
+v[36]: 234
+v[37]: 246
+v[38]: 251
+v[39]: 251
+
+Program exited with code 013.
+(gdb) b main
+Breakpoint 1 at 0x106b4
+(gdb) b test
+Breakpoint 2 at 0x106b8
+(gdb) b sort
+Breakpoint 3 at 0xff354114
+(gdb) b endloop
+Breakpoint 4 at 0x1074c
+(gdb) b printdata
+Breakpoint 5 at 0x10760
+(gdb) b printloop
+Breakpoint 6 at 0x10770
+(gdb) b done
+Breakpoint 7 at 0x1079c
+(gdb) display/i $pc
+(gdb) r
+Starting program: /home/ugb/david.ng2/Documents/a3 
+[New LWP    1        ]
+(no debugging symbols found)
+(no debugging symbols found)
+
+Breakpoint 1, 0x000106b4 in main ()
+1: x/i $pc
+0x106b4 <main+4>:       clr  %l0
+(gdb) ni
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) ni
+0x000106bc in test ()
+1: x/i $pc
+0x106bc <test+4>:       bge,a   0x106fc <sort>
+0x106c0 <test+8>:       mov  1, %l0
+(gdb) p $l0
+$1 = 0
+(gdb) ni
+0x000106c4 in test ()
+1: x/i $pc
+0x106c4 <test+12>:      call  0x208d8 <rand@plt>
+0x106c8 <test+16>:      mov  0xff, %l3
+(gdb) ni
+0x000106c8 in test ()
+1: x/i $pc
+0x106c8 <test+16>:      mov  0xff, %l3
+(gdb) ni
+0x000106cc in test ()
+1: x/i $pc
+0x106cc <test+20>:      and  %l3, %o0, %o0
+(gdb) p $l3
+$2 = 255
+(gdb) ni
+0x000106d0 in test ()
+1: x/i $pc
+0x106d0 <test+24>:      sll  %l0, 2, %o3
+(gdb) ni
+0x000106d4 in test ()
+1: x/i $pc
+0x106d4 <test+28>:      add  %fp, %o3, %o3
+(gdb) ni
+0x000106d8 in test ()
+1: x/i $pc
+0x106d8 <test+32>:      st  %o0, [ %o3 + -160 ]
+(gdb) p $l o3
+$3 = -4195352
+(gdb) ni
+0x000106dc in test ()
+1: x/i $pc
+0x106dc <test+36>:      mov  %o0, %o3
+(gdb) p $o3     ni
+0x000106e0 in test ()
+1: x/i $pc
+0x106e0 <test+40>:      sethi  %hi(0x10400), %o0
+(gdb) p $o3
+$4 = 198
+(gdb) ni
+0x000106e4 in test ()
+1: x/i $pc
+0x106e4 <test+44>:      or  %o0, 0x294, %o0     ! 0x10694 <fmt>
+(gdb) ni
+0x000106e8 in test ()
+1: x/i $pc
+0x106e8 <test+48>:      mov  %l0, %o1
+(gdb) ni
+0x000106ec in test ()
+1: x/i $pc
+0x106ec <test+52>:      call  0x208e4 <printf@plt>
+0x106f0 <test+56>:      mov  %o3, %o2
+(gdb) p $l o1
+$5 = 0
+(gdb) ni
+0x000106f0 in test ()
+1: x/i $pc
+0x106f0 <test+56>:      mov  %o3, %o2
+(gdb) p $o2
+$6 = 12288
+(gdb) ni
+v[0]: 198
+0x000106f4 in test ()
+1: x/i $pc
+0x106f4 <test+60>:      b  0x106b8 <test>
+0x106f8 <test+64>:      inc  %l0
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[1]: 126
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[2]: 129
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[3]: 107
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[4]: 75
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[5]: 251
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[6]: 226
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[7]: 251
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[8]: 84
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[9]: 246
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[10]: 189
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[11]: 223
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[12]: 124
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[13]: 28
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[14]: 225
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[15]: 135
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[16]: 1
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[17]: 191
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[18]: 49
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[19]: 222
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[20]: 86
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[21]: 114
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[22]: 15
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[23]: 71
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[24]: 103
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[25]: 102
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[26]: 135
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[27]: 89
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[28]: 170
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[29]: 136
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[30]: 60
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[31]: 89
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[32]: 234
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[33]: 86
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[34]: 19
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[35]: 123
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[36]: 210
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[37]: 133
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[38]: 161
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[39]: 216
+
+Breakpoint 2, 0x000106b8 in test ()
+1: x/i $pc
+0x106b8 <test>: cmp  %l0, 0x28
+(gdb) x/40d $fp-160
+0xffbffb48:     198     126     129     107
+0xffbffb58:     75      251     226     251
+0xffbffb68:     84      246     189     223
+0xffbffb78:     124     28      225     135
+0xffbffb88:     1       191     49      222
+0xffbffb98:     86      114     15      71
+0xffbffba8:     103     102     135     89
+0xffbffbb8:     170     136     60      89
+0xffbffbc8:     234     86      19      123
+0xffbffbd8:     210     133     161     216
+(gdb) ni
+0x000106bc in test ()
+1: x/i $pc
+0x106bc <test+4>:       bge,a   0x106fc <sort>
+0x106c0 <test+8>:       mov  1, %l0
+(gdb) ni
+0x000106c0 in test ()
+1: x/i $pc
+0x106c0 <test+8>:       mov  1, %l0
+(gdb) ni
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) ni
+0x00010750 in endloop ()
+1: x/i $pc
+0x10750 <endloop+4>:    add  %fp, %o3, %o3
+(gdb) p $l1
+$7 = 0
+(gdb) p $l0
+$8 = 1
+(gdb) p $l2
+$9 = 126
+(gdb) ni
+0x00010754 in endloop ()
+1: x/i $pc
+0x10754 <endloop+8>:    st  %l2, [ %o3 + -160 ]
+(gdb) p $o3
+$10 = -4195352
+(gdb) ni
+0x00010758 in endloop ()
+1: x/i $pc
+0x10758 <endloop+12>:   b  0x106fc <sort>
+0x1075c <endloop+16>:   inc  %l0
+(gdb) ni
+0x0001075c in endloop ()
+1: x/i $pc
+0x1075c <endloop+16>:   inc  %l0
+(gdb) ni
+0x000106fc in sort ()
+1: x/i $pc
+0x106fc <sort>: cmp  %l0, 0x28
+(gdb) p $l0
+$11 = 2
+(gdb) ni
+0x00010700 in sort ()
+1: x/i $pc
+0x10700 <sort+4>:       bge  0x10760 <printdata>
+0x10704 <sort+8>:       sll  %l0, 2, %o3
+(gdb) ni
+0x00010704 in sort ()
+1: x/i $pc
+0x10704 <sort+8>:       sll  %l0, 2, %o3
+(gdb) ni
+0x00010708 in sort ()
+1: x/i $pc
+0x10708 <sort+12>:      add  %fp, %o3, %o3
+(gdb) p $o3
+$12 = 8
+(gdb) ni
+0x0001070c in sort ()
+1: x/i $pc
+0x1070c <sort+16>:      ld  [ %o3 + -160 ], %o3
+(gdb) p $o3
+$13 = -4195344
+(gdb) ni
+0x00010710 in sort ()
+1: x/i $pc
+0x10710 <sort+20>:      mov  %o3, %l2
+(gdb) p $o3
+$14 = 129
+(gdb) ni
+0x00010714 in sort ()
+1: x/i $pc
+0x10714 <sort+24>:      mov  %l0, %l1
+(gdb) p $l2
+$15 = 129
+(gdb) ni
+0x00010718 in innerloop ()
+1: x/i $pc
+0x10718 <innerloop>:    cmp  %l1, 0
+(gdb) p $l1
+$16 = 2
+(gdb) ni
+0x0001071c in innerloop ()
+1: x/i $pc
+0x1071c <innerloop+4>:  ble  0x1074c <endloop>
+0x10720 <innerloop+8>:  add  %l1, -1, %l4
+(gdb) ni
+0x00010720 in innerloop ()
+1: x/i $pc
+0x10720 <innerloop+8>:  add  %l1, -1, %l4
+(gdb) ni
+0x00010724 in innerloop ()
+1: x/i $pc
+0x10724 <innerloop+12>: sll  %l4, 2, %o3
+(gdb) p $l4
+$17 = 1
+(gdb) ni
+0x00010728 in innerloop ()
+1: x/i $pc
+0x10728 <innerloop+16>: add  %fp, %o3, %o3
+(gdb) ni
+0x0001072c in innerloop ()
+1: x/i $pc
+0x1072c <innerloop+20>: ld  [ %o3 + -160 ], %o3
+(gdb) ni
+0x00010730 in innerloop ()
+1: x/i $pc
+0x10730 <innerloop+24>: cmp  %l2, %o3
+(gdb) p $l2
+$18 = 129
+(gdb) ni
+0x00010734 in innerloop ()
+1: x/i $pc
+0x10734 <innerloop+28>: bge  0x1074c <endloop>
+0x10738 <innerloop+32>: sll  %l1, 2, %o4
+(gdb) p $o3
+$19 = 198
+(gdb) p $o4     ni
+0x00010738 in innerloop ()
+1: x/i $pc
+0x10738 <innerloop+32>: sll  %l1, 2, %o4
+(gdb) p\  ni
+0x0001073c in innerloop ()
+1: x/i $pc
+0x1073c <innerloop+36>: add  %fp, %o4, %o4
+(gdb) p $o4
+$20 = 8
+(gdb) ni
+0x00010740 in innerloop ()
+1: x/i $pc
+0x10740 <innerloop+40>: st  %o3, [ %o4 + -160 ]
+(gdb) ni
+0x00010744 in innerloop ()
+1: x/i $pc
+0x10744 <innerloop+44>: b  0x10718 <innerloop>
+0x10748 <innerloop+48>: add  %l1, -1, %l1
+(gdb) ni
+0x00010748 in innerloop ()
+1: x/i $pc
+0x10748 <innerloop+48>: add  %l1, -1, %l1
+(gdb) ni
+0x00010718 in innerloop ()
+1: x/i $pc
+0x10718 <innerloop>:    cmp  %l1, 0
+(gdb) p $l1
+$21 = 1
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) ni
+0x00010750 in endloop ()
+1: x/i $pc
+0x10750 <endloop+4>:    add  %fp, %o3, %o3
+(gdb) p $o3
+$22 = 4
+(gdb) ni
+0x00010754 in endloop ()
+1: x/i $pc
+0x10754 <endloop+8>:    st  %l2, [ %o3 + -160 ]
+(gdb) p $o3
+$23 = -4195348
+(gdb) ni
+0x00010758 in endloop ()
+1: x/i $pc
+0x10758 <endloop+12>:   b  0x106fc <sort>
+0x1075c <endloop+16>:   inc  %l0
+(gdb) p $l2
+$24 = 129
+(gdb) ni
+0x0001075c in endloop ()
+1: x/i $pc
+0x1075c <endloop+16>:   inc  %l0
+(gdb) ni
+0x000106fc in sort ()
+1: x/i $pc
+0x106fc <sort>: cmp  %l0, 0x28
+(gdb) p $l0
+$25 = 3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x0001074c in endloop ()
+1: x/i $pc
+0x1074c <endloop>:      sll  %l1, 2, %o3
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010760 in printdata ()
+1: x/i $pc
+0x10760 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c ni
+0x00010764 in printdata ()
+1: x/i $pc
+0x10764 <printdata+4>:  or  %o0, 0x2a0, %o0     ! 0x106a0 <fmt1>
+(gdb) ni  x/40d $fp-160
+0xffbffb48:     1       15      19      28
+0xffbffb58:     49      60      71      75
+0xffbffb68:     84      86      86      89
+0xffbffb78:     89      102     103     107
+0xffbffb88:     114     123     124     126
+0xffbffb98:     129     133     135     135
+0xffbffba8:     136     161     170     189
+0xffbffbb8:     191     198     210     216
+0xffbffbc8:     222     223     225     226
+0xffbffbd8:     234     246     251     251
+(gdb) ni
+0x00010768 in printdata ()
+1: x/i $pc
+0x10768 <printdata+8>:  call  0x208e4 <printf@plt>
+0x1076c <printdata+12>: clr  %l0
+(gdb) ni
+0x0001076c in printdata ()
+1: x/i $pc
+0x1076c <printdata+12>: clr  %l0
+(gdb) ni
+(no debugging symbols found)
+
+Sorted array:
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) ni
+0x00010774 in printloop ()
+1: x/i $pc
+0x10774 <printloop+4>:  bge  0x1079c <done>
+0x10778 <printloop+8>:  sll  %l0, 2, %o3
+(gdb) ni
+0x00010778 in printloop ()
+1: x/i $pc
+0x10778 <printloop+8>:  sll  %l0, 2, %o3
+(gdb) ni
+0x0001077c in printloop ()
+1: x/i $pc
+0x1077c <printloop+12>: add  %fp, %o3, %o3
+(gdb) p $o3
+$26 = 0
+(gdb) ni
+0x00010780 in printloop ()
+1: x/i $pc
+0x10780 <printloop+16>: ld  [ %o3 + -160 ], %o2
+(gdb) p $o3
+$27 = -4195352
+(gdb) ni
+0x00010784 in printloop ()
+1: x/i $pc
+0x10784 <printloop+20>: sethi  %hi(0x10400), %o0
+(gdb) p $o2
+$28 = 1
+(gdb) ni
+0x00010788 in printloop ()
+1: x/i $pc
+0x10788 <printloop+24>: or  %o0, 0x294, %o0     ! 0x10694 <fmt>
+(gdb) ni
+0x0001078c in printloop ()
+1: x/i $pc
+0x1078c <printloop+28>: call  0x208e4 <printf@plt>
+0x10790 <printloop+32>: mov  %l0, %o1
+(gdb) p $l0
+$29 = 0
+(gdb) ni
+0x00010790 in printloop ()
+1: x/i $pc
+0x10790 <printloop+32>: mov  %l0, %o1
+(gdb) ni
+v[0]: 1
+0x00010794 in printloop ()
+1: x/i $pc
+0x10794 <printloop+36>: b  0x10770 <printloop>
+0x10798 <printloop+40>: inc  %l0
+(gdb) ni
+0x00010798 in printloop ()
+1: x/i $pc
+0x10798 <printloop+40>: inc  %l0
+(gdb) ni
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) p 4 $l0
+$30 = 1
+(gdb) c
+Continuing.
+v[1]: 15
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[2]: 19
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[3]: 28
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[4]: 49
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[5]: 60
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[6]: 71
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[7]: 75
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[8]: 84
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[9]: 86
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[10]: 86
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[11]: 89
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[12]: 89
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[13]: 102
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[14]: 103
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[15]: 107
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[16]: 114
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[17]: 123
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[18]: 124
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[19]: 126
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[20]: 129
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[21]: 133
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[22]: 135
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[23]: 135
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[24]: 136
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[25]: 161
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[26]: 170
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[27]: 189
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[28]: 191
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[29]: 198
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[30]: 210
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[31]: 216
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[32]: 222
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[33]: 223
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[34]: 225
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[35]: 226
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[36]: 234
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[37]: 246
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[38]: 251
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+v[39]: 251
+
+Breakpoint 6, 0x00010770 in printloop ()
+1: x/i $pc
+0x10770 <printloop>:    cmp  %l0, 0x28
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x0001079c in done ()
+1: x/i $pc
+0x1079c <done>: mov  1, %g1
+(gdb) ni
+0x000107a0 in done ()
+1: x/i $pc
+0x107a0 <done+4>:       ta  0
+(gdb) ni
+
+Program exited with code 013.
+(gdb) q
+sh-3.00$ exit
+exit
+
+script done on Tue Oct 27 18:47:45 2015

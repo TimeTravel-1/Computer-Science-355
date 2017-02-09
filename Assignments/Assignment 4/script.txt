@@ -1,0 +1,1374 @@
+Script started on Tue Nov 10 18:28:47 2015
+sh-3.00$ /usr/loca/bin/gdb -v
+sh: /usr/loca/bin/gdb: No such file or directory
+sh-3.00$ /usr/local/bin/gdb a4
+[?1034hGNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10"...
+(no debugging symbols found)
+(gdb) r
+Starting program: /home/ugb/david.ng2/Downloads/a4 
+(no debugging symbols found)
+(no debugging symbols found)
+(no debugging symbols found)
+Initial box values:
+Box first origin = (0, 0)  width = 1  height = 1  area = 1
+Box second origin = (0, 0)  width = 1  height = 1  area = 1
+
+Changed box values:
+Box first origin = (-5, 7)  width = 1  height = 1  area = 1
+Box second origin = (0, 0)  width = 3  height = 3  area = 9
+
+Program exited with code 0211.
+(gdb) b main
+Breakpoint 1 at 0x10908
+(gdb) b resume
+Breakpoint 2 at 0x10994
+(gdb) dislp  play/i $pc
+(gdb) r
+Starting program: /home/ugb/david.ng2/Downloads/a4 
+[New LWP    1        ]
+(no debugging symbols found)
+(no debugging symbols found)
+
+Breakpoint 1, 0x00010908 in main ()
+1: x/i $pc
+0x10908 <main+4>:       add  %fp, -20, %o0
+(gdb) ni
+0x0001090c in main ()
+1: x/i $pc
+0x1090c <main+8>:       call  0x107a8 <newBox>
+0x10910 <main+12>:      st  %o0, [ %sp + 0x40 ]
+(gdb) ni
+0x00010910 in main ()
+1: x/i $pc
+0x10910 <main+12>:      st  %o0, [ %sp + 0x40 ]
+(gdb) ni
+0x00010918 in main ()
+1: x/i $pc
+0x10918 <main+20>:      add  %fp, -40, %o0
+(gdb) p $o0
+$1 = -4195372
+(gdb) p x/i $sp +         ni
+0x0001091c in main ()
+1: x/i $pc
+0x1091c <main+24>:      call  0x107a8 <newBox>
+0x10920 <main+28>:      st  %o0, [ %sp + 0x40 ]
+(gdb) p $o0
+$2 = -4195392
+(gdb) si
+0x00010920 in main ()
+1: x/i $pc
+0x10920 <main+28>:      st  %o0, [ %sp + 0x40 ]
+(gdb) si
+0x000107a8 in newBox ()
+1: x/i $pc
+0x107a8 <newBox>:       save  %sp, -112, %sp
+(gdb) ni
+0x000107ac in newBox ()
+1: x/i $pc
+0x107ac <newBox+4>:     ld  [ %i7 + 8 ], %o1
+(gdb) ni
+0x000107b0 in newBox ()
+1: x/i $pc
+0x107b0 <newBox+8>:     cmp  %o1, 0x14
+(gdb) p $o1
+$3 = 20
+(gdb) ni
+0x000107b4 in newBox ()
+1: x/i $pc
+0x107b4 <newBox+12>:    bne  0x1080c <return>
+0x107b8 <newBox+16>:    clr  [ %fp + -20 ]
+(gdb) ni
+0x000107b8 in newBox ()
+1: x/i $pc
+0x107b8 <newBox+16>:    clr  [ %fp + -20 ]
+(gdb) ni
+0x000107bc in newBox ()
+1: x/i $pc
+0x107bc <newBox+20>:    clr  [ %fp + -16 ]
+(gdb) x/i $fp -20
+0xffbffb50:     unimp  0
+(gdb) ni
+0x000107c0 in newBox ()
+1: x/i $pc
+0x107c0 <newBox+24>:    mov  1, %o0
+(gdb) x/i $fp -16
+0xffbffb54:     unimp  0
+(gdb) ni
+0x000107c4 in newBox ()
+1: x/i $pc
+0x107c4 <newBox+28>:    st  %o0, [ %fp + -12 ]
+(gdb) ni
+0x000107c8 in newBox ()
+1: x/i $pc
+0x107c8 <newBox+32>:    mov  1, %o0
+(gdb) x/i $p fp -12
+0xffbffb58:     unimp  0x1
+(gdb) ni
+0x000107cc in newBox ()
+1: x/i $pc
+0x107cc <newBox+36>:    st  %o0, [ %fp + -8 ]
+(gdb) ni
+0x000107d0 in newBox ()
+1: x/i $pc
+0x107d0 <newBox+40>:    ld  [ %fp + -12 ], %o0
+(gdb) $fp -       x/i $fp -8
+0xffbffb5c:     unimp  0x1
+(gdb) ni
+0x000107d4 in newBox ()
+1: x/i $pc
+0x107d4 <newBox+44>:    call  0x20b0c <.mul@plt>
+0x107d8 <newBox+48>:    ld  [ %fp + -8 ], %o1
+(gdb) ni
+0x000107d8 in newBox ()
+1: x/i $pc
+0x107d8 <newBox+48>:    ld  [ %fp + -8 ], %o1
+(gdb) ni
+0x000107dc in newBox ()
+1: x/i $pc
+0x107dc <newBox+52>:    st  %o0, [ %fp + -4 ]
+(gdb) ni
+0x000107e0 in newBox ()
+1: x/i $pc
+0x107e0 <newBox+56>:    ld  [ %fp + 0x40 ], %o0
+(gdb) ni
+0x000107e4 in newBox ()
+1: x/i $pc
+0x107e4 <newBox+60>:    ld  [ %fp + -20 ], %l0
+(gdb) ni
+0x000107e8 in newBox ()
+1: x/i $pc
+0x107e8 <newBox+64>:    st  %l0, [ %o0 ]
+(gdb) ni
+0x000107ec in newBox ()
+1: x/i $pc
+0x107ec <newBox+68>:    ld  [ %fp + -16 ], %l0
+(gdb) s ni
+0x000107f0 in newBox ()
+1: x/i $pc
+0x107f0 <newBox+72>:    st  %l0, [ %o0 + 4 ]
+(gdb) si
+0x000107f4 in newBox ()
+1: x/i $pc
+0x107f4 <newBox+76>:    ld  [ %fp + -12 ], %l0
+(gdb) si
+0x000107f8 in newBox ()
+1: x/i $pc
+0x107f8 <newBox+80>:    st  %l0, [ %o0 + 8 ]
+(gdb) si
+0x000107fc in newBox ()
+1: x/i $pc
+0x107fc <newBox+84>:    ld  [ %fp + -8 ], %l0
+(gdb) si
+0x00010800 in newBox ()
+1: x/i $pc
+0x10800 <newBox+88>:    st  %l0, [ %o0 + 0xc ]
+(gdb) si
+0x00010804 in newBox ()
+1: x/i $pc
+0x10804 <newBox+92>:    ld  [ %fp + -4 ], %l0
+(gdb) si
+0x00010808 in newBox ()
+1: x/i $pc
+0x10808 <newBox+96>:    st  %l0, [ %o0 + 0x10 ]
+(gdb) si
+0x0001080c in return ()
+1: x/i $pc
+0x1080c <return>:       jmp  %i7 + 0xc
+0x10810 <return+4>:     restore 
+(gdb) si
+0x00010810 in return ()
+1: x/i $pc
+0x10810 <return+4>:     restore 
+(gdb) s si
+0x00010928 in main ()
+1: x/i $pc
+0x10928 <main+36>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x0001092c in main ()
+1: x/i $pc
+0x1092c <main+40>:      or  %o0, 0x330, %o0     ! 0x10730 <fmt>
+(gdb) ni
+0x00010930 in main ()
+1: x/i $pc
+0x10930 <main+44>:      call  0x20b18 <printf@plt>
+0x10934 <main+48>:      add  %fp, -20, %l0
+(gdb) ni
+0x00010934 in main ()
+1: x/i $pc
+0x10934 <main+48>:      add  %fp, -20, %l0
+(gdb) ni
+(no debugging symbols found)
+Initial box values:
+0x00010938 in main ()
+1: x/i $pc
+0x10938 <main+52>:      sethi  %hi(0x10400), %o0
+(gdb) p $l0
+$4 = -4195372
+(gdb) ni
+0x0001093c in main ()
+1: x/i $pc
+0x1093c <main+56>:      or  %o0, 0x383, %o0     ! 0x10783 <fmt2>
+(gdb) si
+0x00010940 in main ()
+1: x/i $pc
+0x10940 <main+60>:      mov  %l0, %o1
+(gdb) si
+0x00010944 in main ()
+1: x/i $pc
+0x10944 <main+64>:      call  0x10874 <printBox>
+0x10948 <main+68>:      st  %l0, [ %sp + 0x40 ]
+(gdb) p $o1
+$5 = -4195372
+(gdb) si
+0x00010948 in main ()
+1: x/i $pc
+0x10948 <main+68>:      st  %l0, [ %sp + 0x40 ]
+(gdb) si
+0x00010874 in printBox ()
+1: x/i $pc
+0x10874 <printBox>:     save  %sp, -96, %sp
+(gdb) ni  x/5d $fp -20
+0xffbffbd4:     0       0       1       1
+0xffbffbe4:     1
+(gdb) x/5d $fp -16
+0xffbffbd8:     0       1       1       1
+0xffbffbe8:     1
+(gdb) ni
+0x00010878 in printBox ()
+1: x/i $pc
+0x10878 <printBox+4>:   ld  [ %fp + 0x40 ], %l0
+(gdb) ni
+0x0001087c in printBox ()
+1: x/i $pc
+0x1087c <printBox+8>:   sethi  %hi(0x10400), %o0
+(gdb) p $l0
+$6 = -4195372
+(gdb) ni
+0x00010880 in printBox ()
+1: x/i $pc
+0x10880 <printBox+12>:  or  %o0, 0x345, %o0     ! 0x10745 <fmt1>
+(gdb) ni
+0x00010884 in printBox ()
+1: x/i $pc
+0x10884 <printBox+16>:  mov  %i0, %o1
+(gdb) ni
+0x00010888 in printBox ()
+1: x/i $pc
+0x10888 <printBox+20>:  ld  [ %l0 ], %o2
+(gdb) ni
+0x0001088c in printBox ()
+1: x/i $pc
+0x1088c <printBox+24>:  ld  [ %l0 + 4 ], %o3
+(gdb) ni
+0x00010890 in printBox ()
+1: x/i $pc
+0x10890 <printBox+28>:  ld  [ %l0 + 8 ], %o4
+(gdb) ni
+0x00010894 in printBox ()
+1: x/i $pc
+0x10894 <printBox+32>:  ld  [ %l0 + 0xc ], %o5
+(gdb) ni
+0x00010898 in printBox ()
+1: x/i $pc
+0x10898 <printBox+36>:  ld  [ %l0 + 0x10 ], %i5
+(gdb) ni
+0x0001089c in printBox ()
+1: x/i $pc
+0x1089c <printBox+40>:  call  0x20b18 <printf@plt>
+0x108a0 <printBox+44>:  st  %i5, [ %sp + 0x5c ]
+(gdb) p $o1
+$7 = 67459
+(gdb) p $o2
+$8 = 0
+(gdb) p $o3
+$9 = 0
+(gdb) p $o4
+$10 = 1
+(gdb) p $o5
+$11 = 1
+(gdb) p $o    ni
+0x000108a0 in printBox ()
+1: x/i $pc
+0x108a0 <printBox+44>:  st  %i5, [ %sp + 0x5c ]
+(gdb) ni
+Box first origin = (0, 0)  width = 1  height = 1  area = 1
+0x000108a4 in printBox ()
+1: x/i $pc
+0x108a4 <printBox+48>:  ret 
+0x108a8 <printBox+52>:  restore 
+(gdb) x/i $sp + 0x5c
+0xffbffb60:     unimp  0x1
+(gdb) si
+0x000108a8 in printBox ()
+1: x/i $pc
+0x108a8 <printBox+52>:  restore 
+(gdb) si
+0x0001094c in main ()
+1: x/i $pc
+0x1094c <main+72>:      add  %fp, -40, %l1
+(gdb) ni
+0x00010950 in main ()
+1: x/i $pc
+0x10950 <main+76>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x00010954 in main ()
+1: x/i $pc
+0x10954 <main+80>:      or  %o0, 0x389, %o0     ! 0x10789 <fmt4>
+(gdb) ni
+0x00010958 in main ()
+1: x/i $pc
+0x10958 <main+84>:      mov  %l1, %o1
+(gdb) ni
+0x0001095c in main ()
+1: x/i $pc
+0x1095c <main+88>:      call  0x10874 <printBox>
+0x10960 <main+92>:      st  %l1, [ %sp + 0x40 ]
+(gdb) p $l1
+$12 = -4195392
+(gdb) ni 
+0x00010960 in main ()
+1: x/i $pc
+0x10960 <main+92>:      st  %l1, [ %sp + 0x40 ]
+(gdb) ni
+Box second origin = (0, 0)  width = 1  height = 1  area = 1
+0x00010964 in main ()
+1: x/i $pc
+0x10964 <main+96>:      mov  %l0, %o0
+(gdb) si
+0x00010968 in main ()
+1: x/i $pc
+0x10968 <main+100>:     call  0x108ac <equal>
+0x1096c <main+104>:     mov  %l1, %o1
+(gdb) p $o0
+$13 = -4195372
+(gdb) si
+0x0001096c in main ()
+1: x/i $pc
+0x1096c <main+104>:     mov  %l1, %o1
+(gdb) si
+0x000108ac in equal ()
+1: x/i $pc
+0x108ac <equal>:        save  %sp, -96, %sp
+(gdb) p $o1
+$14 = -4195392
+(gdb) ni
+0x000108b0 in equal ()
+1: x/i $pc
+0x108b0 <equal+4>:      mov  %i0, %l0
+(gdb) ni
+0x000108b4 in equal ()
+1: x/i $pc
+0x108b4 <equal+8>:      ld  [ %l0 ], %l1
+(gdb) p $l0
+$15 = -4195372
+(gdb) ni
+0x000108b8 in equal ()
+1: x/i $pc
+0x108b8 <equal+12>:     ld  [ %i1 ], %l2
+(gdb) ni
+0x000108bc in equal ()
+1: x/i $pc
+0x108bc <equal+16>:     cmp  %l1, %l2
+(gdb) p $l2
+$16 = 0
+(gdb) p $l1
+$17 = 0
+(gdb) ni
+0x000108c0 in equal ()
+1: x/i $pc
+0x108c0 <equal+20>:     bne  0x108fc <result>
+0x108c4 <equal+24>:     clr  %i0
+(gdb) ni
+0x000108c4 in equal ()
+1: x/i $pc
+0x108c4 <equal+24>:     clr  %i0
+(gdb) ni
+0x000108c8 in equal ()
+1: x/i $pc
+0x108c8 <equal+28>:     ld  [ %l0 + 4 ], %l1
+(gdb) ni
+0x000108cc in equal ()
+1: x/i $pc
+0x108cc <equal+32>:     cmp  %l1, %l2
+(gdb) ni
+0x000108d0 in equal ()
+1: x/i $pc
+0x108d0 <equal+36>:     bne  0x108fc <result>
+0x108d4 <equal+40>:     ld  [ %i1 + 4 ], %l2
+(gdb) ni
+0x000108d4 in equal ()
+1: x/i $pc
+0x108d4 <equal+40>:     ld  [ %i1 + 4 ], %l2
+(gdb) ni
+0x000108d8 in equal ()
+1: x/i $pc
+0x108d8 <equal+44>:     ld  [ %l0 + 8 ], %l1
+(gdb) ni
+0x000108dc in equal ()
+1: x/i $pc
+0x108dc <equal+48>:     cmp  %l1, %l2
+(gdb) ni
+0x000108e0 in equal ()
+1: x/i $pc
+0x108e0 <equal+52>:     bne  0x108fc <result>
+0x108e4 <equal+56>:     ld  [ %i1 + 8 ], %l2
+(gdb) ni
+0x000108e4 in equal ()
+1: x/i $pc
+0x108e4 <equal+56>:     ld  [ %i1 + 8 ], %l2
+(gdb) ni
+0x000108fc in result ()
+1: x/i $pc
+0x108fc <result>:       ret 
+0x10900 <result+4>:     restore 
+(gdb) p $l1
+$18 = 1
+(gdb) p $l2
+$19 = 1
+(gdb) ni  si
+0x00010900 in result ()
+1: x/i $pc
+0x10900 <result+4>:     restore 
+(gdb) si
+0x00010970 in main ()
+1: x/i $pc
+0x10970 <main+108>:     cmp  %o0, 0
+(gdb) ni
+0x00010974 in main ()
+1: x/i $pc
+0x10974 <main+112>:     bne  0x10994 <resume>
+0x10978 <main+116>:     mov  %l0, %o0
+(gdb) ni
+0x00010978 in main ()
+1: x/i $pc
+0x10978 <main+116>:     mov  %l0, %o0
+(gdb) ni
+0x0001097c in main ()
+1: x/i $pc
+0x1097c <main+120>:     mov  -5, %o1
+(gdb) p $o0
+$20 = -4195372
+(gdb) ni
+0x00010980 in main ()
+1: x/i $pc
+0x10980 <main+124>:     call  0x10814 <move>
+0x10984 <main+128>:     mov  7, %o2
+(gdb) p % $o1
+$21 = -5
+(gdb) si
+0x00010984 in main ()
+1: x/i $pc
+0x10984 <main+128>:     mov  7, %o2
+(gdb) si
+0x00010814 in move ()
+1: x/i $pc
+0x10814 <move>: save  %sp, -96, %sp
+(gdb) ni
+0x00010818 in move ()
+1: x/i $pc
+0x10818 <move+4>:       ld  [ %i0 ], %i5
+(gdb) ni
+0x0001081c in move ()
+1: x/i $pc
+0x1081c <move+8>:       add  %i5, %i1, %i4
+(gdb) p $i5
+$22 = 0
+(gdb) ni
+0x00010820 in move ()
+1: x/i $pc
+0x10820 <move+12>:      st  %i4, [ %i0 ]
+(gdb) p $i4
+$23 = -5
+(gdb) ni
+0x00010824 in move ()
+1: x/i $pc
+0x10824 <move+16>:      ld  [ %i0 + 4 ], %i5
+(gdb) x/i % $i0
+0xffbffbd4:     unknown
+(gdb) ni
+0x00010828 in move ()
+1: x/i $pc
+0x10828 <move+20>:      add  %i5, %i2, %i4
+(gdb) ni
+0x0001082c in move ()
+1: x/i $pc
+0x1082c <move+24>:      st  %i4, [ %i0 + 4 ]
+(gdb) ni
+0x00010830 in move ()
+1: x/i $pc
+0x10830 <move+28>:      ret 
+0x10834 <move+32>:      restore 
+(gdb) x/i $i0 + 4
+0xffbffbd8:     unimp  0x7
+(gdb) x/i $i0
+0xffbffbd4:     unknown
+(gdb) ni
+0x00010834 in move ()
+1: x/i $pc
+0x10834 <move+32>:      restore 
+(gdb) si
+0x00010988 in main ()
+1: x/i $pc
+0x10988 <main+132>:     mov  %l1, %o0
+(gdb) ni
+0x0001098c in main ()
+1: x/i $pc
+0x1098c <main+136>:     call  0x10838 <expand>
+0x10990 <main+140>:     mov  3, %o1
+(gdb) p $o0
+$24 = -4195392
+(gdb) si
+0x00010990 in main ()
+1: x/i $pc
+0x10990 <main+140>:     mov  3, %o1
+(gdb) si
+0x00010838 in expand ()
+1: x/i $pc
+0x10838 <expand>:       save  %sp, -96, %sp
+(gdb) si
+0x0001083c in expand ()
+1: x/i $pc
+0x1083c <expand+4>:     ld  [ %i0 + 8 ], %o0
+(gdb) si
+0x00010840 in expand ()
+1: x/i $pc
+0x10840 <expand+8>:     call  0x20b0c <.mul@plt>
+0x10844 <expand+12>:    mov  %i1, %o1
+(gdb) ni
+0x00010844 in expand ()
+1: x/i $pc
+0x10844 <expand+12>:    mov  %i1, %o1
+(gdb) ni
+0x00010848 in expand ()
+1: x/i $pc
+0x10848 <expand+16>:    st  %o0, [ %i0 + 8 ]
+(gdb) p $o1
+$25 = 0
+(gdb) ni
+0x0001084c in expand ()
+1: x/i $pc
+0x1084c <expand+20>:    mov  %o0, %l0
+(gdb) p   x/i $i0 + 8
+0xffbffbc8:     unimp  0x3
+(gdb) ni
+0x00010850 in expand ()
+1: x/i $pc
+0x10850 <expand+24>:    ld  [ %i0 + 0xc ], %o0
+(gdb) ni
+0x00010854 in expand ()
+1: x/i $pc
+0x10854 <expand+28>:    call  0x20b0c <.mul@plt>
+0x10858 <expand+32>:    mov  %i1, %o1
+(gdb) ni
+0x00010858 in expand ()
+1: x/i $pc
+0x10858 <expand+32>:    mov  %i1, %o1
+(gdb) ni
+0x0001085c in expand ()
+1: x/i $pc
+0x1085c <expand+36>:    st  %o0, [ %i0 + 0xc ]
+(gdb) ni
+0x00010860 in expand ()
+1: x/i $pc
+0x10860 <expand+40>:    call  0x20b0c <.mul@plt>
+0x10864 <expand+44>:    mov  %l0, %o1
+(gdb) x/i $i0 + 0xc
+0xffbffbcc:     unimp  0x3
+(gdb) ni
+0x00010864 in expand ()
+1: x/i $pc
+0x10864 <expand+44>:    mov  %l0, %o1
+(gdb) ni
+0x00010868 in expand ()
+1: x/i $pc
+0x10868 <expand+48>:    st  %o0, [ %i0 + 0x10 ]
+(gdb) ni
+0x0001086c in expand ()
+1: x/i $pc
+0x1086c <expand+52>:    ret 
+0x10870 <expand+56>:    restore 
+(gdb) x/i $i0 + 0x10
+0xffbffbd0:     unimp  0x9
+(gdb) ni
+0x00010870 in expand ()
+1: x/i $pc
+0x10870 <expand+56>:    restore 
+(gdb) si
+
+Breakpoint 2, 0x00010994 in resume ()
+1: x/i $pc
+0x10994 <resume>:       sethi  %hi(0x10400), %o0
+(gdb) si
+0x00010998 in resume ()
+1: x/i $pc
+0x10998 <resume+4>:     or  %o0, 0x390, %o0     ! 0x10790 <fmt6>
+(gdb) x/5d $fp -20
+0xffbffbd4:     -5      7       1       1
+0xffbffbe4:     1
+(gdb) x/5d $fp -40
+0xffbffbc0:     0       0       3       3
+0xffbffbd0:     9
+(gdb) ni
+0x0001099c in resume ()
+1: x/i $pc
+0x1099c <resume+8>:     call  0x20b18 <printf@plt>
+0x109a0 <resume+12>:    add  %fp, -20, %l0
+(gdb) ni
+0x000109a0 in resume ()
+1: x/i $pc
+0x109a0 <resume+12>:    add  %fp, -20, %l0
+(gdb) ni
+
+Changed box values:
+0x000109a4 in resume ()
+1: x/i $pc
+0x109a4 <resume+16>:    sethi  %hi(0x10400), %o0
+(gdb) ni
+0x000109a8 in resume ()
+1: x/i $pc
+0x109a8 <resume+20>:    or  %o0, 0x383, %o0     ! 0x10783 <fmt2>
+(gdb) ni
+0x000109ac in resume ()
+1: x/i $pc
+0x109ac <resume+24>:    mov  %l0, %o1
+(gdb) ni
+0x000109b0 in resume ()
+1: x/i $pc
+0x109b0 <resume+28>:    call  0x10874 <printBox>
+0x109b4 <resume+32>:    st  %o1, [ %sp + 0x40 ]
+(gdb) ni
+0x000109b4 in resume ()
+1: x/i $pc
+0x109b4 <resume+32>:    st  %o1, [ %sp + 0x40 ]
+(gdb) ni
+Box first origin = (-5, 7)  width = 1  height = 1  area = 1
+0x000109b8 in resume ()
+1: x/i $pc
+0x109b8 <resume+36>:    add  %fp, -40, %l1
+(gdb) ni
+0x000109bc in resume ()
+1: x/i $pc
+0x109bc <resume+40>:    sethi  %hi(0x10400), %o0
+(gdb) ni
+0x000109c0 in resume ()
+1: x/i $pc
+0x109c0 <resume+44>:    or  %o0, 0x389, %o0     ! 0x10789 <fmt4>
+(gdb) ni
+0x000109c4 in resume ()
+1: x/i $pc
+0x109c4 <resume+48>:    mov  %l1, %o1
+(gdb) ni
+0x000109c8 in resume ()
+1: x/i $pc
+0x109c8 <resume+52>:    call  0x10874 <printBox>
+0x109cc <resume+56>:    st  %o1, [ %sp + 0x40 ]
+(gdb) ni
+0x000109cc in resume ()
+1: x/i $pc
+0x109cc <resume+56>:    st  %o1, [ %sp + 0x40 ]
+(gdb) ni
+Box second origin = (0, 0)  width = 3  height = 3  area = 9
+0x000109d0 in resume ()
+1: x/i $pc
+0x109d0 <resume+60>:    mov  1, %g1
+(gdb) ni
+0x000109d4 in resume ()
+1: x/i $pc
+0x109d4 <resume+64>:    ta  0
+(gdb) ni
+
+Program exited with code 0211.
+(gdb) exit
+Undefined command: "exit".  Try "help".
+(gdb) quit
+sh-3.00$ exit
+exit
+
+script done on Tue Nov 10 18:47:43 2015
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   %l0, [ %o0 + 0x10 ]
+(gdb) si
+0x0001080c in return ()
+1: x/i $pc
+0x1080c <return>:       jmp  %i7 + 0xc
+0x10810 <return+4>:     restore 
+(gdb) si  si
+0x00010810 in return ()
+1: x/i $pc
+0x10810 <return+4>:     restore 
+(gdb) si
+0x00010918 in main ()
+1: x/i $pc
+0x10918 <main+20>:      add  %fp, -40, %o0
+(gdb) si
+0x0001091c in main ()
+1: x/i $pc
+0x1091c <main+24>:      call  0x107a8 <newBox>
+0x10920 <main+28>:      st  %o0, [ %sp + 0x40 ]
+(gdb) ni
+0x00010920 in main ()
+1: x/i $pc
+0x10920 <main+28>:      st  %o0, [ %sp + 0x40 ]
+(gdb) ni
+0x00010928 in main ()
+1: x/i $pc
+0x10928 <main+36>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x0001092c in main ()
+1: x/i $pc
+0x1092c <main+40>:      or  %o0, 0x330, %o0     ! 0x10730 <fmt>
+(gdb) ni
+0x00010930 in main ()
+1: x/i $pc
+0x10930 <main+44>:      call  0x20b18 <printf@plt>
+0x10934 <main+48>:      add  %fp, -20, %l0
+(gdb) ni
+0x00010934 in main ()
+1: x/i $pc
+0x10934 <main+48>:      add  %fp, -20, %l0
+(gdb) ni
+(no debugging symbols found)
+Initial box values:
+0x00010938 in main ()
+1: x/i $pc
+0x10938 <main+52>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x0001093c in main ()
+1: x/i $pc
+0x1093c <main+56>:      or  %o0, 0x383, %o0     ! 0x10783 <fmt2>
+(gdb) ni
+0x00010940 in main ()
+1: x/i $pc
+0x10940 <main+60>:      mov  %l0, %o1
+(gdb) ni
+0x00010944 in main ()
+1: x/i $pc
+0x10944 <main+64>:      call  0x10874 <printBox>
+0x10948 <main+68>:      st  %l0, [ %sp + 0x40 ]
+(gdb) ni
+0x00010948 in main ()
+1: x/i $pc
+0x10948 <main+68>:      st  %l0, [ %sp + 0x40 ]
+(gdb) ni
+Box first origin = (0, 0)  width = 1  height = 1  area = 1
+0x0001094c in main ()
+1: x/i $pc
+0x1094c <main+72>:      add  %fp, -40, %l1
+(gdb) nii
+Undefined command: "nii".  Try "help".
+(gdb) 
+Undefined command: "nii".  Try "help".
+(gdb) 
+Undefined command: "nii".  Try "help".
+(gdb) quit
+The program is running.  Exit anyway? (y or n) exit
+Please answer y or n.
+The program is running.  Exit anyway? (y or n) ex  y
+sh-3.00$ exit
+exit
+Script done, file is script1.txt
+sh-3.00$ quit
+sh: quit: command not found
+sh-3.00$ scrit    ipt script1.t   .txt
+Script started, file is script.txt
+sh-3.00$ /usr/loca/bin/gdb -v
+sh: /usr/loca/bin/gdb: No such file or directory
+sh-3.00$ /usr/local/bin/gdb a4
+[?1034hGNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10"...
+(no debugging symbols found)
+(gdb) r
+Starting program: /home/ugb/david.ng2/Downloads/a4 
+(no debugging symbols found)
+(no debugging symbols found)
+(no debugging symbols found)
+Initial box values:
+Box first origin = (0, 0)  width = 1  height = 1  area = 1
+Box second origin = (0, 0)  width = 1  height = 1  area = 1
+
+Changed box values:
+Box first origin = (-5, 7)  width = 1  height = 1  area = 1
+Box second origin = (0, 0)  width = 3  height = 3  area = 9
+
+Program exited with code 0211.
+(gdb) b main
+Breakpoint 1 at 0x10908
+(gdb) b resume
+Breakpoint 2 at 0x10994
+(gdb) dislp  play/i $pc
+(gdb) r
+Starting program: /home/ugb/david.ng2/Downloads/a4 
+[New LWP    1        ]
+(no debugging symbols found)
+(no debugging symbols found)
+
+Breakpoint 1, 0x00010908 in main ()
+1: x/i $pc
+0x10908 <main+4>:       add  %fp, -20, %o0
+(gdb) ni
+0x0001090c in main ()
+1: x/i $pc
+0x1090c <main+8>:       call  0x107a8 <newBox>
+0x10910 <main+12>:      st  %o0, [ %sp + 0x40 ]
+(gdb) ni
+0x00010910 in main ()
+1: x/i $pc
+0x10910 <main+12>:      st  %o0, [ %sp + 0x40 ]
+(gdb) ni
+0x00010918 in main ()
+1: x/i $pc
+0x10918 <main+20>:      add  %fp, -40, %o0
+(gdb) p $o0
+$1 = -4195372
+(gdb) p x/i $sp +         ni
+0x0001091c in main ()
+1: x/i $pc
+0x1091c <main+24>:      call  0x107a8 <newBox>
+0x10920 <main+28>:      st  %o0, [ %sp + 0x40 ]
+(gdb) p $o0
+$2 = -4195392
+(gdb) si
+0x00010920 in main ()
+1: x/i $pc
+0x10920 <main+28>:      st  %o0, [ %sp + 0x40 ]
+(gdb) si
+0x000107a8 in newBox ()
+1: x/i $pc
+0x107a8 <newBox>:       save  %sp, -112, %sp
+(gdb) ni
+0x000107ac in newBox ()
+1: x/i $pc
+0x107ac <newBox+4>:     ld  [ %i7 + 8 ], %o1
+(gdb) ni
+0x000107b0 in newBox ()
+1: x/i $pc
+0x107b0 <newBox+8>:     cmp  %o1, 0x14
+(gdb) p $o1
+$3 = 20
+(gdb) ni
+0x000107b4 in newBox ()
+1: x/i $pc
+0x107b4 <newBox+12>:    bne  0x1080c <return>
+0x107b8 <newBox+16>:    clr  [ %fp + -20 ]
+(gdb) ni
+0x000107b8 in newBox ()
+1: x/i $pc
+0x107b8 <newBox+16>:    clr  [ %fp + -20 ]
+(gdb) ni
+0x000107bc in newBox ()
+1: x/i $pc
+0x107bc <newBox+20>:    clr  [ %fp + -16 ]
+(gdb) x/i $fp -20
+0xffbffb50:     unimp  0
+(gdb) ni
+0x000107c0 in newBox ()
+1: x/i $pc
+0x107c0 <newBox+24>:    mov  1, %o0
+(gdb) x/i $fp -16
+0xffbffb54:     unimp  0
+(gdb) ni
+0x000107c4 in newBox ()
+1: x/i $pc
+0x107c4 <newBox+28>:    st  %o0, [ %fp + -12 ]
+(gdb) ni
+0x000107c8 in newBox ()
+1: x/i $pc
+0x107c8 <newBox+32>:    mov  1, %o0
+(gdb) x/i $p fp -12
+0xffbffb58:     unimp  0x1
+(gdb) ni
+0x000107cc in newBox ()
+1: x/i $pc
+0x107cc <newBox+36>:    st  %o0, [ %fp + -8 ]
+(gdb) ni
+0x000107d0 in newBox ()
+1: x/i $pc
+0x107d0 <newBox+40>:    ld  [ %fp + -12 ], %o0
+(gdb) $fp -       x/i $fp -8
+0xffbffb5c:     unimp  0x1
+(gdb) ni
+0x000107d4 in newBox ()
+1: x/i $pc
+0x107d4 <newBox+44>:    call  0x20b0c <.mul@plt>
+0x107d8 <newBox+48>:    ld  [ %fp + -8 ], %o1
+(gdb) ni
+0x000107d8 in newBox ()
+1: x/i $pc
+0x107d8 <newBox+48>:    ld  [ %fp + -8 ], %o1
+(gdb) ni
+0x000107dc in newBox ()
+1: x/i $pc
+0x107dc <newBox+52>:    st  %o0, [ %fp + -4 ]
+(gdb) ni
+0x000107e0 in newBox ()
+1: x/i $pc
+0x107e0 <newBox+56>:    ld  [ %fp + 0x40 ], %o0
+(gdb) ni
+0x000107e4 in newBox ()
+1: x/i $pc
+0x107e4 <newBox+60>:    ld  [ %fp + -20 ], %l0
+(gdb) ni
+0x000107e8 in newBox ()
+1: x/i $pc
+0x107e8 <newBox+64>:    st  %l0, [ %o0 ]
+(gdb) ni
+0x000107ec in newBox ()
+1: x/i $pc
+0x107ec <newBox+68>:    ld  [ %fp + -16 ], %l0
+(gdb) s ni
+0x000107f0 in newBox ()
+1: x/i $pc
+0x107f0 <newBox+72>:    st  %l0, [ %o0 + 4 ]
+(gdb) si
+0x000107f4 in newBox ()
+1: x/i $pc
+0x107f4 <newBox+76>:    ld  [ %fp + -12 ], %l0
+(gdb) si
+0x000107f8 in newBox ()
+1: x/i $pc
+0x107f8 <newBox+80>:    st  %l0, [ %o0 + 8 ]
+(gdb) si
+0x000107fc in newBox ()
+1: x/i $pc
+0x107fc <newBox+84>:    ld  [ %fp + -8 ], %l0
+(gdb) si
+0x00010800 in newBox ()
+1: x/i $pc
+0x10800 <newBox+88>:    st  %l0, [ %o0 + 0xc ]
+(gdb) si
+0x00010804 in newBox ()
+1: x/i $pc
+0x10804 <newBox+92>:    ld  [ %fp + -4 ], %l0
+(gdb) si
+0x00010808 in newBox ()
+1: x/i $pc
+0x10808 <newBox+96>:    st  %l0, [ %o0 + 0x10 ]
+(gdb) si
+0x0001080c in return ()
+1: x/i $pc
+0x1080c <return>:       jmp  %i7 + 0xc
+0x10810 <return+4>:     restore 
+(gdb) si
+0x00010810 in return ()
+1: x/i $pc
+0x10810 <return+4>:     restore 
+(gdb) s si
+0x00010928 in main ()
+1: x/i $pc
+0x10928 <main+36>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x0001092c in main ()
+1: x/i $pc
+0x1092c <main+40>:      or  %o0, 0x330, %o0     ! 0x10730 <fmt>
+(gdb) ni
+0x00010930 in main ()
+1: x/i $pc
+0x10930 <main+44>:      call  0x20b18 <printf@plt>
+0x10934 <main+48>:      add  %fp, -20, %l0
+(gdb) ni
+0x00010934 in main ()
+1: x/i $pc
+0x10934 <main+48>:      add  %fp, -20, %l0
+(gdb) ni
+(no debugging symbols found)
+Initial box values:
+0x00010938 in main ()
+1: x/i $pc
+0x10938 <main+52>:      sethi  %hi(0x10400), %o0
+(gdb) p $l0
+$4 = -4195372
+(gdb) ni
+0x0001093c in main ()
+1: x/i $pc
+0x1093c <main+56>:      or  %o0, 0x383, %o0     ! 0x10783 <fmt2>
+(gdb) si
+0x00010940 in main ()
+1: x/i $pc
+0x10940 <main+60>:      mov  %l0, %o1
+(gdb) si
+0x00010944 in main ()
+1: x/i $pc
+0x10944 <main+64>:      call  0x10874 <printBox>
+0x10948 <main+68>:      st  %l0, [ %sp + 0x40 ]
+(gdb) p $o1
+$5 = -4195372
+(gdb) si
+0x00010948 in main ()
+1: x/i $pc
+0x10948 <main+68>:      st  %l0, [ %sp + 0x40 ]
+(gdb) si
+0x00010874 in printBox ()
+1: x/i $pc
+0x10874 <printBox>:     save  %sp, -96, %sp
+(gdb) ni  x/5d $fp -20
+0xffbffbd4:     0       0       1       1
+0xffbffbe4:     1
+(gdb) x/5d $fp -16
+0xffbffbd8:     0       1       1       1
+0xffbffbe8:     1
+(gdb) ni
+0x00010878 in printBox ()
+1: x/i $pc
+0x10878 <printBox+4>:   ld  [ %fp + 0x40 ], %l0
+(gdb) ni
+0x0001087c in printBox ()
+1: x/i $pc
+0x1087c <printBox+8>:   sethi  %hi(0x10400), %o0
+(gdb) p $l0
+$6 = -4195372
+(gdb) ni
+0x00010880 in printBox ()
+1: x/i $pc
+0x10880 <printBox+12>:  or  %o0, 0x345, %o0     ! 0x10745 <fmt1>
+(gdb) ni
+0x00010884 in printBox ()
+1: x/i $pc
+0x10884 <printBox+16>:  mov  %i0, %o1
+(gdb) ni
+0x00010888 in printBox ()
+1: x/i $pc
+0x10888 <printBox+20>:  ld  [ %l0 ], %o2
+(gdb) ni
+0x0001088c in printBox ()
+1: x/i $pc
+0x1088c <printBox+24>:  ld  [ %l0 + 4 ], %o3
+(gdb) ni
+0x00010890 in printBox ()
+1: x/i $pc
+0x10890 <printBox+28>:  ld  [ %l0 + 8 ], %o4
+(gdb) ni
+0x00010894 in printBox ()
+1: x/i $pc
+0x10894 <printBox+32>:  ld  [ %l0 + 0xc ], %o5
+(gdb) ni
+0x00010898 in printBox ()
+1: x/i $pc
+0x10898 <printBox+36>:  ld  [ %l0 + 0x10 ], %i5
+(gdb) ni
+0x0001089c in printBox ()
+1: x/i $pc
+0x1089c <printBox+40>:  call  0x20b18 <printf@plt>
+0x108a0 <printBox+44>:  st  %i5, [ %sp + 0x5c ]
+(gdb) p $o1
+$7 = 67459
+(gdb) p $o2
+$8 = 0
+(gdb) p $o3
+$9 = 0
+(gdb) p $o4
+$10 = 1
+(gdb) p $o5
+$11 = 1
+(gdb) p $o    ni
+0x000108a0 in printBox ()
+1: x/i $pc
+0x108a0 <printBox+44>:  st  %i5, [ %sp + 0x5c ]
+(gdb) ni
+Box first origin = (0, 0)  width = 1  height = 1  area = 1
+0x000108a4 in printBox ()
+1: x/i $pc
+0x108a4 <printBox+48>:  ret 
+0x108a8 <printBox+52>:  restore 
+(gdb) x/i $sp + 0x5c
+0xffbffb60:     unimp  0x1
+(gdb) si
+0x000108a8 in printBox ()
+1: x/i $pc
+0x108a8 <printBox+52>:  restore 
+(gdb) si
+0x0001094c in main ()
+1: x/i $pc
+0x1094c <main+72>:      add  %fp, -40, %l1
+(gdb) ni
+0x00010950 in main ()
+1: x/i $pc
+0x10950 <main+76>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x00010954 in main ()
+1: x/i $pc
+0x10954 <main+80>:      or  %o0, 0x389, %o0     ! 0x10789 <fmt4>
+(gdb) ni
+0x00010958 in main ()
+1: x/i $pc
+0x10958 <main+84>:      mov  %l1, %o1
+(gdb) ni
+0x0001095c in main ()
+1: x/i $pc
+0x1095c <main+88>:      call  0x10874 <printBox>
+0x10960 <main+92>:      st  %l1, [ %sp + 0x40 ]
+(gdb) p $l1
+$12 = -4195392
+(gdb) ni 
+0x00010960 in main ()
+1: x/i $pc
+0x10960 <main+92>:      st  %l1, [ %sp + 0x40 ]
+(gdb) ni
+Box second origin = (0, 0)  width = 1  height = 1  area = 1
+0x00010964 in main ()
+1: x/i $pc
+0x10964 <main+96>:      mov  %l0, %o0
+(gdb) si
+0x00010968 in main ()
+1: x/i $pc
+0x10968 <main+100>:     call  0x108ac <equal>
+0x1096c <main+104>:     mov  %l1, %o1
+(gdb) p $o0
+$13 = -4195372
+(gdb) si
+0x0001096c in main ()
+1: x/i $pc
+0x1096c <main+104>:     mov  %l1, %o1
+(gdb) si
+0x000108ac in equal ()
+1: x/i $pc
+0x108ac <equal>:        save  %sp, -96, %sp
+(gdb) p $o1
+$14 = -4195392
+(gdb) ni
+0x000108b0 in equal ()
+1: x/i $pc
+0x108b0 <equal+4>:      mov  %i0, %l0
+(gdb) ni
+0x000108b4 in equal ()
+1: x/i $pc
+0x108b4 <equal+8>:      ld  [ %l0 ], %l1
+(gdb) p $l0
+$15 = -4195372
+(gdb) ni
+0x000108b8 in equal ()
+1: x/i $pc
+0x108b8 <equal+12>:     ld  [ %i1 ], %l2
+(gdb) ni
+0x000108bc in equal ()
+1: x/i $pc
+0x108bc <equal+16>:     cmp  %l1, %l2
+(gdb) p $l2
+$16 = 0
+(gdb) p $l1
+$17 = 0
+(gdb) ni
+0x000108c0 in equal ()
+1: x/i $pc
+0x108c0 <equal+20>:     bne  0x108fc <result>
+0x108c4 <equal+24>:     clr  %i0
+(gdb) ni
+0x000108c4 in equal ()
+1: x/i $pc
+0x108c4 <equal+24>:     clr  %i0
+(gdb) ni
+0x000108c8 in equal ()
+1: x/i $pc
+0x108c8 <equal+28>:     ld  [ %l0 + 4 ], %l1
+(gdb) ni
+0x000108cc in equal ()
+1: x/i $pc
+0x108cc <equal+32>:     cmp  %l1, %l2
+(gdb) ni
+0x000108d0 in equal ()
+1: x/i $pc
+0x108d0 <equal+36>:     bne  0x108fc <result>
+0x108d4 <equal+40>:     ld  [ %i1 + 4 ], %l2
+(gdb) ni
+0x000108d4 in equal ()
+1: x/i $pc
+0x108d4 <equal+40>:     ld  [ %i1 + 4 ], %l2
+(gdb) ni
+0x000108d8 in equal ()
+1: x/i $pc
+0x108d8 <equal+44>:     ld  [ %l0 + 8 ], %l1
+(gdb) ni
+0x000108dc in equal ()
+1: x/i $pc
+0x108dc <equal+48>:     cmp  %l1, %l2
+(gdb) ni
+0x000108e0 in equal ()
+1: x/i $pc
+0x108e0 <equal+52>:     bne  0x108fc <result>
+0x108e4 <equal+56>:     ld  [ %i1 + 8 ], %l2
+(gdb) ni
+0x000108e4 in equal ()
+1: x/i $pc
+0x108e4 <equal+56>:     ld  [ %i1 + 8 ], %l2
+(gdb) ni
+0x000108fc in result ()
+1: x/i $pc
+0x108fc <result>:       ret 
+0x10900 <result+4>:     restore 
+(gdb) p $l1
+$18 = 1
+(gdb) p $l2
+$19 = 1
+(gdb) ni  si
+0x00010900 in result ()
+1: x/i $pc
+0x10900 <result+4>:     restore 
+(gdb) si
+0x00010970 in main ()
+1: x/i $pc
+0x10970 <main+108>:     cmp  %o0, 0
+(gdb) ni
+0x00010974 in main ()
+1: x/i $pc
+0x10974 <main+112>:     bne  0x10994 <resume>
+0x10978 <main+116>:     mov  %l0, %o0
+(gdb) ni
+0x00010978 in main ()
+1: x/i $pc
+0x10978 <main+116>:     mov  %l0, %o0
+(gdb) ni
+0x0001097c in main ()
+1: x/i $pc
+0x1097c <main+120>:     mov  -5, %o1
+(gdb) p $o0
+$20 = -4195372
+(gdb) ni
+0x00010980 in main ()
+1: x/i $pc
+0x10980 <main+124>:     call  0x10814 <move>
+0x10984 <main+128>:     mov  7, %o2
+(gdb) p % $o1
+$21 = -5
+(gdb) si
+0x00010984 in main ()
+1: x/i $pc
+0x10984 <main+128>:     mov  7, %o2
+(gdb) si
+0x00010814 in move ()
+1: x/i $pc
+0x10814 <move>: save  %sp, -96, %sp
+(gdb) ni
+0x00010818 in move ()
+1: x/i $pc
+0x10818 <move+4>:       ld  [ %i0 ], %i5
+(gdb) ni
+0x0001081c in move ()
+1: x/i $pc
+0x1081c <move+8>:       add  %i5, %i1, %i4
+(gdb) p $i5
+$22 = 0
+(gdb) ni
+0x00010820 in move ()
+1: x/i $pc
+0x10820 <move+12>:      st  %i4, [ %i0 ]
+(gdb) p $i4
+$23 = -5
+(gdb) ni
+0x00010824 in move ()
+1: x/i $pc
+0x10824 <move+16>:      ld  [ %i0 + 4 ], %i5
+(gdb) x/i % $i0
+0xffbffbd4:     unknown
+(gdb) ni
+0x00010828 in move ()
+1: x/i $pc
+0x10828 <move+20>:      add  %i5, %i2, %i4
+(gdb) ni
+0x0001082c in move ()
+1: x/i $pc
+0x1082c <move+24>:      st  %i4, [ %i0 + 4 ]
+(gdb) ni
+0x00010830 in move ()
+1: x/i $pc
+0x10830 <move+28>:      ret 
+0x10834 <move+32>:      restore 
+(gdb) x/i $i0 + 4
+0xffbffbd8:     unimp  0x7
+(gdb) x/i $i0
+0xffbffbd4:     unknown
+(gdb) ni
+0x00010834 in move ()
+1: x/i $pc
+0x10834 <move+32>:      restore 
+(gdb) si
+0x00010988 in main ()
+1: x/i $pc
+0x10988 <main+132>:     mov  %l1, %o0
+(gdb) ni
+0x0001098c in main ()
+1: x/i $pc
+0x1098c <main+136>:     call  0x10838 <expand>
+0x10990 <main+140>:     mov  3, %o1
+(gdb) p $o0
+$24 = -4195392
+(gdb) si
+0x00010990 in main ()
+1: x/i $pc
+0x10990 <main+140>:     mov  3, %o1
+(gdb) si
+0x00010838 in expand ()
+1: x/i $pc
+0x10838 <expand>:       save  %sp, -96, %sp
+(gdb) si
+0x0001083c in expand ()
+1: x/i $pc
+0x1083c <expand+4>:     ld  [ %i0 + 8 ], %o0
+(gdb) si
+0x00010840 in expand ()
+1: x/i $pc
+0x10840 <expand+8>:     call  0x20b0c <.mul@plt>
+0x10844 <expand+12>:    mov  %i1, %o1
+(gdb) ni
+0x00010844 in expand ()
+1: x/i $pc
+0x10844 <expand+12>:    mov  %i1, %o1
+(gdb) ni
+0x00010848 in expand ()
+1: x/i $pc
+0x10848 <expand+16>:    st  %o0, [ %i0 + 8 ]
+(gdb) p $o1
+$25 = 0
+(gdb) ni
+0x0001084c in expand ()
+1: x/i $pc
+0x1084c <expand+20>:    mov  %o0, %l0
+(gdb) p   x/i $i0 + 8
+0xffbffbc8:     unimp  0x3
+(gdb) ni
+0x00010850 in expand ()
+1: x/i $pc
+0x10850 <expand+24>:    ld  [ %i0 + 0xc ], %o0
+(gdb) ni
+0x00010854 in expand ()
+1: x/i $pc
+0x10854 <expand+28>:    call  0x20b0c <.mul@plt>
+0x10858 <expand+32>:    mov  %i1, %o1
+(gdb) ni
+0x00010858 in expand ()
+1: x/i $pc
+0x10858 <expand+32>:    mov  %i1, %o1
+(gdb) ni
+0x0001085c in expand ()
+1: x/i $pc
+0x1085c <expand+36>:    st  %o0, [ %i0 + 0xc ]
+(gdb) ni
+0x00010860 in expand ()
+1: x/i $pc
+0x10860 <expand+40>:    call  0x20b0c <.mul@plt>
+0x10864 <expand+44>:    mov  %l0, %o1
+(gdb) x/i $i0 + 0xc
+0xffbffbcc:     unimp  0x3
+(gdb) ni
+0x00010864 in expand ()
+1: x/i $pc
+0x10864 <expand+44>:    mov  %l0, %o1
+(gdb) ni
+0x00010868 in expand ()
+1: x/i $pc
+0x10868 <expand+48>:    st  %o0, [ %i0 + 0x10 ]
+(gdb) ni
+0x0001086c in expand ()
+1: x/i $pc
+0x1086c <expand+52>:    ret 
+0x10870 <expand+56>:    restore 
+(gdb) x/i $i0 + 0x10
+0xffbffbd0:   

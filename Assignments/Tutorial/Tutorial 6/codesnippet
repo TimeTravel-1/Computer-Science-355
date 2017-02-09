@@ -1,0 +1,11 @@
+ld[%i1 + box_area], %l4
+
+mov %i0, %l5
+set fmt, %o0
+mov %l5, %o1
+mov %l0, %o2
+mov %l1, %o3
+mov %l2, %o4
+mov %l3, %o5
+st %l4, [%sp + arg_d(7)]
+

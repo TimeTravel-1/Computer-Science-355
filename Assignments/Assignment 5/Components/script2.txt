@@ -1,0 +1,13 @@
+Script started on Tue Nov 24 18:15:56 2015
+sh-3.00$ ./a.out 12 31 2015
+December 31st, 2015
+sh-3.00$ ./a.out 6 22 3 2010
+June 23rd, 2010
+sh-3.00$ ./a.out 7 15 1997
+July 15th, 1997
+sh-3.00$ exit
+exit
+
+script done on Tue Nov 24 18:16:45 2015
+
+script done on Tue Nov 24 18:16:45 2015

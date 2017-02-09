@@ -1,0 +1,594 @@
+niniScript started on Wed Sep 30 15:50:33 2015
+sh-3.00$ /usr/local/bin/gdb -v -version
+GNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10".
+sh-3.00$ /usr r/local/bin/gdb assign1
+[?1034hGNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10"...
+(no debugging symbols found)
+(gdb) r
+Starting program: /home/ugb/david.ng2/Desktop/assign1 
+(no debugging symbols found)
+(no debugging symbols found)
+(no debugging symbols found)
+The value of x is: -2   The value of y is:-69   The current minimum is: -69
+The value of x is: -1   The value of y is:9     The current minimum is: -69
+The value of x is: 0    The value of y is:39    The current minimum is: -69
+The value of x is: 1    The value of y is:33    The current minimum is: -69
+The value of x is: 2    The value of y is:3     The current minimum is: -69
+The value of x is: 3    The value of y is:-39   The current minimum is: -69
+The value of x is: 4    The value of y is:-81   The current minimum is: -81
+The value of x is: 5    The value of y is:-111  The current minimum is: -111
+The value of x is: 6    The value of y is:-117  The current minimum is: -117
+The value of x is: 7    The value of y is:-87   The current minimum is: -117
+The value of x is: 8    The value of y is:-9    The current minimum is: -117
+The value of x is: 9    The value of y is:129   The current minimum is: -117
+The value of x is: 10   The value of y is:339   The current minimum is: -117
+The value of x is: 11   The value of y is:633   The current minimum is: -117
+The minimum over the range is: -117
+
+Program exited with code 044.
+(gdb) b main
+Breakpoint 1 at 0x10704
+(gdb) b test
+Breakpoint 2 at 0x1070c
+(gdb) b printdata
+Breakpoint 3 at 0x10780
+(gdb) b done
+Breakpoint 4 at 0x107a8
+(gdb) display/i $pc
+(gdb) r
+Starting program: /home/ugb/david.ng2/Desktop/assign1 
+[New LWP    1        ]
+(no debugging symbols found)
+(no debugging symbols found)
+
+Breakpoint 1, 0x00010704 in main ()
+1: x/i $pc
+0x10704 <main+4>:       mov  -2, %l0
+(gdb) ni
+0x00010708 in main ()
+1: x/i $pc
+0x10708 <main+8>:       mov  0xfff, %l2
+(gdb) p $l0
+$1 = -2
+(gdb) ni
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) p $l2
+$2 = 4095
+(gdb) ni
+0x00010710 in test ()
+1: x/i $pc
+0x10710 <test+4>:       bg  0x107a8 <done>
+0x10714 <test+8>:       nop 
+(gdb) ni
+0x00010714 in test ()
+1: x/i $pc
+0x10714 <test+8>:       nop 
+(gdb) ni
+0x00010718 in test ()
+1: x/i $pc
+0x10718 <test+12>:      mov  %l0, %o0
+(gdb) ni
+0x0001071c in test ()
+1: x/i $pc
+0x1071c <test+16>:      mov  0xa, %o1
+(gdb) ni
+0x00010720 in test ()
+1: x/i $pc
+0x10720 <test+20>:      call  0x208fc <.mul@plt>
+0x10724 <test+24>:      nop 
+(gdb) ni
+0x00010724 in test ()
+1: x/i $pc
+0x10724 <test+24>:      nop 
+(gdb) ni
+0x00010728 in test ()
+1: x/i $pc
+0x10728 <test+28>:      add  %o0, 0x27, %l1
+(gdb) p $o0
+$3 = -20
+(gdb) ni
+0x0001072c in test ()
+1: x/i $pc
+0x1072c <test+32>:      mov  %l0, %o0
+(gdb) p $l1
+$4 = 19
+(gdb) ni
+0x00010730 in test ()
+1: x/i $pc
+0x10730 <test+36>:      mov  %l0, %o1
+(gdb) ni
+0x00010734 in test ()
+1: x/i $pc
+0x10734 <test+40>:      call  0x208fc <.mul@plt>
+0x10738 <test+44>:      nop 
+(gdb) ni
+0x00010738 in test ()
+1: x/i $pc
+0x10738 <test+44>:      nop 
+(gdb) ni
+0x0001073c in test ()
+1: x/i $pc
+0x1073c <test+48>:      mov  %o0, %l3
+(gdb) ni
+0x00010740 in test ()
+1: x/i $pc
+0x10740 <test+52>:      mov  -18, %o1
+(gdb) p $l3
+$5 = 4
+(gdb) ni
+0x00010744 in test ()
+1: x/i $pc
+0x10744 <test+56>:      call  0x208fc <.mul@plt>
+0x10748 <test+60>:      nop 
+(gdb) ni
+0x00010748 in test ()
+1: x/i $pc
+0x10748 <test+60>:      nop 
+(gdb) ni
+0x0001074c in test ()
+1: x/i $pc
+0x1074c <test+64>:      add  %l1, %o0, %l1
+(gdb) ni
+0x00010750 in test ()
+1: x/i $pc
+0x10750 <test+68>:      mov  %l0, %o0
+(gdb) p $l1
+$6 = -53
+(gdb) ni
+0x00010754 in test ()
+1: x/i $pc
+0x10754 <test+72>:      mov  %l3, %o1
+(gdb) ni
+0x00010758 in test ()
+1: x/i $pc
+0x10758 <test+76>:      call  0x208fc <.mul@plt>
+0x1075c <test+80>:      nop 
+(gdb) ni
+0x0001075c in test ()
+1: x/i $pc
+0x1075c <test+80>:      nop 
+(gdb) ni
+0x00010760 in test ()
+1: x/i $pc
+0x10760 <test+84>:      mov  2, %o1     ! 0x2
+(gdb) p $o0
+$7 = -8
+(gdb) ni
+0x00010764 in test ()
+1: x/i $pc
+0x10764 <test+88>:      call  0x208fc <.mul@plt>
+0x10768 <test+92>:      nop 
+(gdb) ni
+0x00010768 in test ()
+1: x/i $pc
+0x10768 <test+92>:      nop 
+(gdb) ni
+0x0001076c in test ()
+1: x/i $pc
+0x1076c <test+96>:      add  %l1, %o0, %l1
+(gdb) p $o0
+$8 = -16
+(gdb) ni
+0x00010770 in test ()
+1: x/i $pc
+0x10770 <test+100>:     cmp  %l1, %l2
+(gdb) p $l1
+$9 = -69
+(gdb) ni
+0x00010774 in test ()
+1: x/i $pc
+0x10774 <test+104>:     bge  0x10780 <printdata>
+0x10778 <test+108>:     nop 
+(gdb) ni
+0x00010778 in test ()
+1: x/i $pc
+0x10778 <test+108>:     nop 
+(gdb) ni
+0x0001077c in test ()
+1: x/i $pc
+0x1077c <test+112>:     mov  %l1, %l2
+(gdb) ni
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) p $l2
+$10 = -69
+(gdb) ni
+0x00010784 in printdata ()
+1: x/i $pc
+0x10784 <printdata+4>:  or  %o0, 0x294, %o0     ! 0x10694 <fmt>
+(gdb) ni
+0x00010788 in printdata ()
+1: x/i $pc
+0x10788 <printdata+8>:  mov  %l0, %o1
+(gdb) ni
+0x0001078c in printdata ()
+1: x/i $pc
+0x1078c <printdata+12>: mov  %l1, %o2
+(gdb) ni
+0x00010790 in printdata ()
+1: x/i $pc
+0x10790 <printdata+16>: mov  %l2, %o3
+(gdb) p $l0
+$11 = -2
+(gdb) p $l1
+$12 = -69
+(gdb) p $l2
+$13 = -69
+(gdb) ni
+0x00010794 in printdata ()
+1: x/i $pc
+0x10794 <printdata+20>: call  0x20908 <printf@plt>
+0x10798 <printdata+24>: nop 
+(gdb) ni
+0x00010798 in printdata ()
+1: x/i $pc
+0x10798 <printdata+24>: nop 
+(gdb) ni
+(no debugging symbols found)
+The value of x is: -2   The value of y is:-69   The current minimum is: -69
+0x0001079c in printdata ()
+1: x/i $pc
+0x1079c <printdata+28>: inc  %l0
+(gdb) ni
+0x000107a0 in printdata ()
+1: x/i $pc
+0x107a0 <printdata+32>: b  0x1070c <test>
+0x107a4 <printdata+36>: nop 
+(gdb) p $l0
+$14 = -1
+(gdb) ni
+0x000107a4 in printdata ()
+1: x/i $pc
+0x107a4 <printdata+36>: nop 
+(gdb) ni
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: -1   The value of y is:9     The current minimum is: -69
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 0    The value of y is:39    The current minimum is: -69
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 1    The value of y is:33    The current minimum is: -69
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 2    The value of y is:3     The current minimum is: -69
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) ni  c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 3    The value of y is:-39   The current minimum is: -69
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) ni
+0x00010710 in test ()
+1: x/i $pc
+0x10710 <test+4>:       bg  0x107a8 <done>
+0x10714 <test+8>:       nop 
+(gdb) ni
+0x00010714 in test ()
+1: x/i $pc
+0x10714 <test+8>:       nop 
+(gdb) ni
+0x00010718 in test ()
+1: x/i $pc
+0x10718 <test+12>:      mov  %l0, %o0
+(gdb) ni
+0x0001071c in test ()
+1: x/i $pc
+0x1071c <test+16>:      mov  0xa, %o1
+(gdb) ni
+0x00010720 in test ()
+1: x/i $pc
+0x10720 <test+20>:      call  0x208fc <.mul@plt>
+0x10724 <test+24>:      nop 
+(gdb) ni
+0x00010724 in test ()
+1: x/i $pc
+0x10724 <test+24>:      nop 
+(gdb) ni
+0x00010728 in test ()
+1: x/i $pc
+0x10728 <test+28>:      add  %o0, 0x27, %l1
+(gdb) ni
+0x0001072c in test ()
+1: x/i $pc
+0x1072c <test+32>:      mov  %l0, %o0
+(gdb) ni
+0x00010730 in test ()
+1: x/i $pc
+0x10730 <test+36>:      mov  %l0, %o1
+(gdb) ni
+0x00010734 in test ()
+1: x/i $pc
+0x10734 <test+40>:      call  0x208fc <.mul@plt>
+0x10738 <test+44>:      nop 
+(gdb) ni
+0x00010738 in test ()
+1: x/i $pc
+0x10738 <test+44>:      nop 
+(gdb) ni
+0x0001073c in test ()
+1: x/i $pc
+0x1073c <test+48>:      mov  %o0, %l3
+(gdb) ni
+0x00010740 in test ()
+1: x/i $pc
+0x10740 <test+52>:      mov  -18, %o1
+(gdb) ni
+0x00010744 in test ()
+1: x/i $pc
+0x10744 <test+56>:      call  0x208fc <.mul@plt>
+0x10748 <test+60>:      nop 
+(gdb) ni
+0x00010748 in test ()
+1: x/i $pc
+0x10748 <test+60>:      nop 
+(gdb) ni
+0x0001074c in test ()
+1: x/i $pc
+0x1074c <test+64>:      add  %l1, %o0, %l1
+(gdb) ni
+0x00010750 in test ()
+1: x/i $pc
+0x10750 <test+68>:      mov  %l0, %o0
+(gdb) ni
+0x00010754 in test ()
+1: x/i $pc
+0x10754 <test+72>:      mov  %l3, %o1
+(gdb) ni
+0x00010758 in test ()
+1: x/i $pc
+0x10758 <test+76>:      call  0x208fc <.mul@plt>
+0x1075c <test+80>:      nop 
+(gdb) ni
+0x0001075c in test ()
+1: x/i $pc
+0x1075c <test+80>:      nop 
+(gdb) ni
+0x00010760 in test ()
+1: x/i $pc
+0x10760 <test+84>:      mov  2, %o1     ! 0x2
+(gdb) ni
+0x00010764 in test ()
+1: x/i $pc
+0x10764 <test+88>:      call  0x208fc <.mul@plt>
+0x10768 <test+92>:      nop 
+(gdb) ni
+0x00010768 in test ()
+1: x/i $pc
+0x10768 <test+92>:      nop 
+(gdb) ni
+0x0001076c in test ()
+1: x/i $pc
+0x1076c <test+96>:      add  %l1, %o0, %l1
+(gdb) ni
+0x00010770 in test ()
+1: x/i $pc
+0x10770 <test+100>:     cmp  %l1, %l2
+(gdb) ni
+0x00010774 in test ()
+1: x/i $pc
+0x10774 <test+104>:     bge  0x10780 <printdata>
+0x10778 <test+108>:     nop 
+(gdb) ni
+0x00010778 in test ()
+1: x/i $pc
+0x10778 <test+108>:     nop 
+(gdb) ni
+0x0001077c in test ()
+1: x/i $pc
+0x1077c <test+112>:     mov  %l1, %l2
+(gdb) ni
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) p $l2
+$15 = -81
+(gdb) c
+Continuing.
+The value of x is: 4    The value of y is:-81   The current minimum is: -81
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 5    The value of y is:-111  The current minimum is: -111
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 6    The value of y is:-117  The current minimum is: -117
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 7    The value of y is:-87   The current minimum is: -117
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 8    The value of y is:-9    The current minimum is: -117
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 9    The value of y is:129   The current minimum is: -117
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 10   The value of y is:339   The current minimum is: -117
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010780 in printdata ()
+1: x/i $pc
+0x10780 <printdata>:    sethi  %hi(0x10400), %o0
+(gdb) c
+Continuing.
+The value of x is: 11   The value of y is:633   The current minimum is: -117
+
+Breakpoint 2, 0x0001070c in test ()
+1: x/i $pc
+0x1070c <test>: cmp  %l0, 0xb
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x000107a8 in done ()
+1: x/i $pc
+0x107a8 <done>: mov  %l2, %l0
+(gdb) ni
+0x000107ac in done ()
+1: x/i $pc
+0x107ac <done+4>:       sethi  %hi(0x10400), %o0
+(gdb) p $l0
+$16 = -117
+(gdb) ni
+0x000107b0 in done ()
+1: x/i $pc
+0x107b0 <done+8>:       or  %o0, 0x2db, %o0     ! 0x106db <min>
+(gdb) ni
+0x000107b4 in done ()
+1: x/i $pc
+0x107b4 <done+12>:      mov  %l2, %o1
+(gdb) ni
+0x000107b8 in done ()
+1: x/i $pc
+0x107b8 <done+16>:      call  0x20908 <printf@plt>
+0x107bc <done+20>:      nop 
+(gdb) ni
+0x000107bc in done ()
+1: x/i $pc
+0x107bc <done+20>:      nop 
+(gdb) ni
+The minimum over the range is: -117
+0x000107c0 in done ()
+1: x/i $pc
+0x107c0 <done+24>:      mov  1, %g1     ! 0x1
+(gdb) ni
+0x000107c4 in done ()
+1: x/i $pc
+0x107c4 <done+28>:      ta  0
+(gdb) ni
+
+Program exited with code

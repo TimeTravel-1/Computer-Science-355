@@ -1,0 +1,1036 @@
+Script started on Tue Oct 13 17:30:09 2015
+sh-3.00$ /usr/local/bin/gdb -v
+GNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10".
+sh-3.00$ ffgfgfggffffgg              /usr/local/bin/gdb a2p2
+[?1034hGNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10"...
+(no debugging symbols found)
+(gdb) r
+Starting program: /home/ugb/david.ng2/Desktop/a2p2 
+(no debugging symbols found)
+(no debugging symbols found)
+(no debugging symbols found)
+The Multiplicand is:    0x04ee67b7      The Multiplier is:      0x072e8b8c      The Product is  0x00000000 before multiplication.
+The Multiplicand is:    0x04ee67b7      The Multiplier is:      0xc8931514      The Product is  0x00236a5c after multiplication.
+The Multiplicand is:    0x04ee67b7      The Multiplier is:      0xf8d17474      The Product is  0x00000000 before multiplication.
+The Multiplicand is:    0x04ee67b7      The Multiplier is:      0x376ceaec      The Product is  0xffdc95a3 after multiplication.
+The Multiplicand is:    0xfb119849      The Multiplier is:      0xf8d17474      The Product is  0x00000000 before multiplication.
+The Multiplicand is:    0xfb119849      The Multiplier is:      0xc8931514      The Product is  0x00236a5c after multiplication.
+
+Program exited with code 0160.
+(gdb) b main
+Breakpoint 1 at 0x10748
+(gdb) b output
+Breakpoint 2 at 0x107e8
+(gdb) b loop2
+Breakpoint 3 at 0x10844
+(gdb) b mult2
+Breakpoint 4 at 0x10864
+(gdb) b result2
+Breakpoint 5 at 0x10880
+(gdb) b neg2
+Breakpoint 6 at 0x1088c
+(gdb) b output2
+Breakpoint 7 at 0x108a0
+(gdb) b output3
+Breakpoint 8 at 0x10958
+(gdb) display/i $pc
+(gdb) r
+Starting program: /home/ugb/david.ng2/Desktop/a2p2 
+[New LWP    1        ]
+(no debugging symbols found)
+(no debugging symbols found)
+
+Breakpoint 1, 0x00010748 in main ()
+1: x/i $pc
+0x10748 <main+4>:       sethi  %hi(0x4ee6400), %l1
+(gdb) ni
+0x0001074c in main ()
+1: x/i $pc
+0x1074c <main+8>:       or  %l1, 0x3b7, %l1     ! 0x4ee67b7
+(gdb) ni
+0x00010750 in main ()
+1: x/i $pc
+0x10750 <main+12>:      sethi  %hi(0x72e8800), %l2
+(gdb) ni
+0x00010754 in main ()
+1: x/i $pc
+0x10754 <main+16>:      or  %l2, 0x38c, %l2     ! 0x72e8b8c
+(gdb) ni
+0x00010758 in main ()
+1: x/i $pc
+0x10758 <main+20>:      clr  %l3
+(gdb) ni
+0x0001075c in main ()
+1: x/i $pc
+0x1075c <main+24>:      clr  %l4
+(gdb) p/x $l1
+$1 = 0x4ee67b7
+(gdb) p/x $l2
+$2 = 0x72e8b8c
+(gdb) p/x $l3
+$3 = 0x0
+(gdb) ni
+0x00010760 in main ()
+1: x/i $pc
+0x10760 <main+28>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x00010764 in main ()
+1: x/i $pc
+0x10764 <main+32>:      or  %o0, 0x270, %o0     ! 0x10670 <fmt>
+(gdb) ni
+0x00010768 in main ()
+1: x/i $pc
+0x10768 <main+36>:      mov  %l1, %o1
+(gdb) ni
+0x0001076c in main ()
+1: x/i $pc
+0x1076c <main+40>:      mov  %l2, %o2
+(gdb) ni
+0x00010770 in main ()
+1: x/i $pc
+0x10770 <main+44>:      call  0x20aac <printf@plt>
+0x10774 <main+48>:      mov  %l3, %o3
+(gdb) ni
+0x00010774 in main ()
+1: x/i $pc
+0x10774 <main+48>:      mov  %l3, %o3
+(gdb) ni
+(no debugging symbols found)
+The Multiplicand is:    0x04ee67b7      The Multiplier is:      0x072e8b8c      The Product is  0x00000000 before multiplication.
+0x00010778 in main ()
+1: x/i $pc
+0x10778 <main+52>:      clr  %l5
+(gdb) ni
+0x0001077c in main ()
+1: x/i $pc
+0x1077c <main+56>:      cmp  %l2, 0
+(gdb) ni
+0x00010780 in main ()
+1: x/i $pc
+0x10780 <main+60>:      bge  0x1078c <loop>
+0x10784 <main+64>:      cmp  %l5, 0x20
+(gdb) ni
+0x00010784 in main ()
+1: x/i $pc
+0x10784 <main+64>:      cmp  %l5, 0x20
+(gdb) ni
+
+Breakpoint 2, 0x000107e8 in output ()
+1: x/i $pc
+0x107e8 <output>:       sethi  %hi(0x10400), %o0
+(gdb) ni
+0x000107ec in output ()
+1: x/i $pc
+0x107ec <output+4>:     or  %o0, 0x2d9, %o0     ! 0x106d9 <fmt1>
+(gdb) ni
+0x000107f0 in output ()
+1: x/i $pc
+0x107f0 <output+8>:     mov  %l1, %o1
+(gdb) ni
+0x000107f4 in output ()
+1: x/i $pc
+0x107f4 <output+12>:    mov  %l2, %o2
+(gdb) ni
+0x000107f8 in output ()
+1: x/i $pc
+0x107f8 <output+16>:    call  0x20aac <printf@plt>
+0x107fc <output+20>:    mov  %l3, %o3
+(gdb) p/x $l1
+$4 = 0x4ee67b7
+(gdb) p/x $l2
+$5 = 0xc8931514
+(gdb) p/x $l3
+$6 = 0x236a5c
+(gdb) ni
+0x000107fc in output ()
+1: x/i $pc
+0x107fc <output+20>:    mov  %l3, %o3
+(gdb) ni
+The Multiplicand is:    0x04ee67b7      The Multiplier is:      0xc8931514      The Product is  0x00236a5c after multiplication.
+0x00010800 in output ()
+1: x/i $pc
+0x10800 <output+24>:    sethi  %hi(0x4ee6400), %l1
+(gdb) ni
+0x00010804 in output ()
+1: x/i $pc
+0x10804 <output+28>:    or  %l1, 0x3b7, %l1     ! 0x4ee67b7
+(gdb) ni
+0x00010808 in output ()
+1: x/i $pc
+0x10808 <output+32>:    sethi  %hi(0xf8d17400), %l2
+(gdb) ni
+0x0001080c in output ()
+1: x/i $pc
+0x1080c <output+36>:    or  %l2, 0x74, %l2      ! 0xf8d17474
+(gdb) ni
+0x00010810 in output ()
+1: x/i $pc
+0x10810 <output+40>:    clr  %l3
+(gdb) ni
+0x00010814 in output ()
+1: x/i $pc
+0x10814 <output+44>:    clr  %l4
+(gdb) p/x $l1
+$7 = 0x4ee67b7
+(gdb) p/x $l2
+$8 = 0xf8d17474
+(gdb) p/x $l3
+$9 = 0x0
+(gdb) ni
+0x00010818 in output ()
+1: x/i $pc
+0x10818 <output+48>:    sethi  %hi(0x10400), %o0
+(gdb) ni
+0x0001081c in output ()
+1: x/i $pc
+0x1081c <output+52>:    or  %o0, 0x270, %o0     ! 0x10670 <fmt>
+(gdb) ni
+0x00010820 in output ()
+1: x/i $pc
+0x10820 <output+56>:    mov  %l1, %o1
+(gdb) ni
+0x00010824 in output ()
+1: x/i $pc
+0x10824 <output+60>:    mov  %l2, %o2
+(gdb) ni
+0x00010828 in output ()
+1: x/i $pc
+0x10828 <output+64>:    call  0x20aac <printf@plt>
+0x1082c <output+68>:    mov  %l3, %o3
+(gdb) ni
+0x0001082c in output ()
+1: x/i $pc
+0x1082c <output+68>:    mov  %l3, %o3
+(gdb) ni
+The Multiplicand is:    0x04ee67b7      The Multiplier is:      0xf8d17474      The Product is  0x00000000 before multiplication.
+0x00010830 in output ()
+1: x/i $pc
+0x10830 <output+72>:    clr  %l5
+(gdb) ni
+0x00010834 in output ()
+1: x/i $pc
+0x10834 <output+76>:    cmp  %l2, 0
+(gdb) ni
+0x00010838 in output ()
+1: x/i $pc
+0x10838 <output+80>:    bge  0x10844 <loop2>
+0x1083c <output+84>:    cmp  %l5, 0x20
+(gdb) ni
+0x0001083c in output ()
+1: x/i $pc
+0x1083c <output+84>:    cmp  %l5, 0x20
+(gdb) ni
+0x00010840 in output ()
+1: x/i $pc
+0x10840 <output+88>:    mov  1, %l4
+(gdb) ni
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) ni
+0x00010848 in loop2 ()
+1: x/i $pc
+0x10848 <loop2+4>:      bge,a   0x1088c <neg2>
+0x1084c <loop2+8>:      cmp  %l4, 1
+(gdb) ni
+0x00010850 in loop2 ()
+1: x/i $pc
+0x10850 <loop2+12>:     btst  1, %l2
+(gdb) p/x $l4
+$10 = 0x1
+(gdb) ni
+0x00010854 in loop2 ()
+1: x/i $pc
+0x10854 <loop2+16>:     ble,a   0x10864 <mult2>
+0x10858 <loop2+20>:     srl  %l2, 1, %l2
+(gdb) ni
+0x00010858 in loop2 ()
+1: x/i $pc
+0x10858 <loop2+20>:     srl  %l2, 1, %l2
+(gdb) ni
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) p/x $l2
+$11 = 0x7c68ba3a
+(gdb) ni
+0x00010868 in mult2 ()
+1: x/i $pc
+0x10868 <mult2+4>:      cmp  %o0, 0
+(gdb) p/x $o0
+$12 = 0x0
+(gdb) ni
+0x0001086c in mult2 ()
+1: x/i $pc
+0x1086c <mult2+8>:      ble,a   0x10880 <result2>
+0x10870 <mult2+12>:     sra  %l3, 1, %l3
+(gdb) ni
+0x00010870 in mult2 ()
+1: x/i $pc
+0x10870 <mult2+12>:     sra  %l3, 1, %l3
+(gdb) ni
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) p/x $l3
+$13 = 0x0
+(gdb) ni
+0x00010884 in result2 ()
+1: x/i $pc
+0x10884 <result2+4>:    b,a   0x10844 <loop2>
+0x10888 <result2+8>:    cmp  %l5, 0x20
+(gdb) ni
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) ni
+0x00010848 in loop2 ()
+1: x/i $pc
+0x10848 <loop2+4>:      bge,a   0x1088c <neg2>
+0x1084c <loop2+8>:      cmp  %l4, 1
+(gdb) p/x $l5
+$14 = 0x1
+(gdb) ni
+0x00010850 in loop2 ()
+1: x/i $pc
+0x10850 <loop2+12>:     btst  1, %l2
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x00010864 in mult2 ()
+1: x/i $pc
+0x10864 <mult2>:        and  %l3, 1, %o0
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x00010880 in result2 ()
+1: x/i $pc
+0x10880 <result2>:      inc  %l5
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2>:        cmp  %l5, 0x20
+(gdb) c
+Continuing.
+
+Breakpoint 6, 0x0001088c in neg2 ()
+1: x/i $pc
+0x1088c <neg2>: cmp  %l4, 1
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x000108a0 in output2 ()
+1: x/i $pc
+0x108a0 <output2>:      sethi  %hi(0x10400), %o0
+(gdb) c ni
+0x000108a4 in output2 ()
+1: x/i $pc
+0x108a4 <output2+4>:    or  %o0, 0x2d9, %o0     ! 0x106d9 <fmt1>
+(gdb) ni
+0x000108a8 in output2 ()
+1: x/i $pc
+0x108a8 <output2+8>:    mov  %l1, %o1
+(gdb) ni
+0x000108ac in output2 ()
+1: x/i $pc
+0x108ac <output2+12>:   mov  %l2, %o2
+(gdb) ni
+0x000108b0 in output2 ()
+1: x/i $pc
+0x108b0 <output2+16>:   call  0x20aac <printf@plt>
+0x108b4 <output2+20>:   mov  %l3, %o3
+(gdb) p/x $l1
+$15 = 0x4ee67b7
+(gdb) p/x $l2
+$16 = 0x376ceaec
+(gdb) p/x $l3
+$17 = 0xffdc95a3
+(gdb) ni
+0x000108b4 in output2 ()
+1: x/i $pc
+0x108b4 <output2+20>:   mov  %l3, %o3
+(gdb) ni
+The Multiplicand is:    0x04ee67b7      The Multiplier is:      0x376ceaec      The Product is  0xffdc95a3 after multiplication.
+0x000108b8 in output2 ()
+1: x/i $pc
+0x108b8 <output2+24>:   sethi  %hi(0xfb119800), %l1
+(gdb) ni
+0x000108bc in output2 ()
+1: x/i $pc
+0x108bc <output2+28>:   or  %l1, 0x49, %l1      ! 0xfb119849
+(gdb) ni
+0x000108c0 in output2 ()
+1: x/i $pc
+0x108c0 <output2+32>:   sethi  %hi(0xf8d17400), %l2
+(gdb) ni
+0x000108c4 in output2 ()
+1: x/i $pc
+0x108c4 <output2+36>:   or  %l2, 0x74, %l2      ! 0xf8d17474
+(gdb) ni
+0x000108c8 in output2 ()
+1: x/i $pc
+0x108c8 <output2+40>:   clr  %l3
+(gdb) ni
+0x000108cc in output2 ()
+1: x/i $pc
+0x108cc <output2+44>:   clr  %l4
+(gdb) ni
+0x000108d0 in output2 ()
+1: x/i $pc
+0x108d0 <output2+48>:   sethi  %hi(0x10400), %o0
+(gdb) p/x $l1
+$18 = 0xfb119849
+(gdb) p/x $l2
+$19 = 0xf8d17474
+(gdb) p/x $l3
+$20 = 0x0
+(gdb) ni
+0x000108d4 in output2 ()
+1: x/i $pc
+0x108d4 <output2+52>:   or  %o0, 0x270, %o0     ! 0x10670 <fmt>
+(gdb) ni
+0x000108d8 in output2 ()
+1: x/i $pc
+0x108d8 <output2+56>:   mov  %l1, %o1
+(gdb) ni
+0x000108dc in output2 ()
+1: x/i $pc
+0x108dc <output2+60>:   mov  %l2, %o2
+(gdb) ni
+0x000108e0 in output2 ()
+1: x/i $pc
+0x108e0 <output2+64>:   call  0x20aac <printf@plt>
+0x108e4 <output2+68>:   mov  %l3, %o3
+(gdb) ni
+0x000108e4 in output2 ()
+1: x/i $pc
+0x108e4 <output2+68>:   mov  %l3, %o3
+(gdb) ni
+The Multiplicand is:    0xfb119849      The Multiplier is:      0xf8d17474      The Product is  0x00000000 before multiplication.
+0x000108e8 in output2 ()
+1: x/i $pc
+0x108e8 <output2+72>:   clr  %l5
+(gdb) ni
+0x000108ec in output2 ()
+1: x/i $pc
+0x108ec <output2+76>:   cmp  %l2, 0
+(gdb) ni
+0x000108f0 in output2 ()
+1: x/i $pc
+0x108f0 <output2+80>:   bge  0x108fc <loop3>
+0x108f4 <output2+84>:   cmp  %l5, 0x20
+(gdb) ni
+0x000108f4 in output2 ()
+1: x/i $pc
+0x108f4 <output2+84>:   cmp  %l5, 0x20
+(gdb) ni
+0x000108f8 in output2 ()
+1: x/i $pc
+0x108f8 <output2+88>:   mov  1, %l4
+(gdb) ni
+
+Breakpoint 8, 0x00010958 in output3 ()
+1: x/i $pc
+0x10958 <output3>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x0001095c in output3 ()
+1: x/i $pc
+0x1095c <output3+4>:    or  %o0, 0x2d9, %o0     ! 0x106d9 <fmt1>
+(gdb) ni
+0x00010960 in output3 ()
+1: x/i $pc
+0x10960 <output3+8>:    mov  %l1, %o1
+(gdb) ni
+0x00010964 in output3 ()
+1: x/i $pc
+0x10964 <output3+12>:   mov  %l2, %o2
+(gdb) ni
+0x00010968 in output3 ()
+1: x/i $pc
+0x10968 <output3+16>:   call  0x20aac <printf@plt>
+0x1096c <output3+20>:   mov  %l3, %o3
+(gdb) ni
+0x0001096c in output3 ()
+1: x/i $pc
+0x1096c <output3+20>:   mov  %l3, %o3
+(gdb) ni
+The Multiplicand is:    0xfb119849      The Multiplier is:      0xc8931514      The Product is  0x00236a5c after multiplication.
+0x00010970 in output3 ()
+1: x/i $pc
+0x10970 <output3+24>:   mov  1, %g1
+(gdb) p/x $l1
+$21 = 0xfb119849
+(gdb) p/x $l2
+$22 = 0xc8931514
+(gdb) p/x $l3
+$23 = 0x236a5c
+(gdb) ni
+0x00010974 in output3 ()
+1: x/i $pc
+0x10974 <output3+28>:   ta  0
+(gdb) ni
+
+Program exited with code 0160.
+(gdb) quit
+sh-3.00$ exit
+exit
+
+script done on Tue Oct 13 17:48:42 2015

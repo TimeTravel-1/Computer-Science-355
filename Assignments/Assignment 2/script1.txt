@@ -1,0 +1,333 @@
+Script started on Tue Oct 13 17:11:21 2015
+sh-3.00$ /usr/local/bin/gdb -v
+GNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10".
+sh-3.00$ /usr/local/bin/gdb a2p1
+[?1034hGNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "sparc-sun-solaris2.10"...
+(no debugging symbols found)
+(gdb) r
+Starting program: /home/ugb/david.ng2/Desktop/a2p1 
+(no debugging symbols found)
+(no debugging symbols found)
+(no debugging symbols found)
+Checksum is:    0x0000ffff      Value of Input Register is:     0xaaaa8c01       before data is fed.
+Checksum is:    0x0000eed4      Value of Input Register is:     0x00000000       after data is fed.
+Checksum is:    0x0000eed4      Value of Input Register is:     0xff001234       before data is fed.
+Checksum is:    0x00008e2f      Value of Input Register is:     0x00000000       after data is fed.
+Checksum is:    0x00008e2f      Value of Input Register is:     0x13579bdf       before data is fed.
+Checksum is:    0x00003278      Value of Input Register is:     0x00000000       after data is fed.
+Checksum is:    0x00003278      Value of Input Register is:     0xc8b4ae32       before data is fed.
+Checksum is:    0x000066b8      Value of Input Register is:     0x00000000       after data is fed.
+
+Program exited with code 0125.
+(gdb) b loop
+Breakpoint 1 at 0x10740
+(gdb) b done
+Breakpoint 2 at 0x1079c
+(gdb) b loop1
+Breakpoint 3 at 0x107b8
+(gdb) b done1
+Breakpoint 4 at 0x10814
+(gdb) b loop2
+Breakpoint 5 at 0x10830
+(gdb) b done2
+Breakpoint 6 at 0x1088c
+(gdb) b loop3
+Breakpoint 7 at 0x108a8
+(gdb) b done 3  3
+Breakpoint 8 at 0x10904
+(gdb) display/i $pc
+(gdb) r
+Starting program: /home/ugb/david.ng2/Desktop/a2p1 
+[New LWP    1        ]
+(no debugging symbols found)
+(no debugging symbols found)
+
+Breakpoint 1, 0x00010740 in loop ()
+1: x/i $pc
+0x10740 <loop>: clr  %l1
+(gdb) ni
+0x00010744 in loop ()
+1: x/i $pc
+0x10744 <loop+4>:       sethi  %hi(0x10400), %o0
+(gdb) ni
+0x00010748 in loop ()
+1: x/i $pc
+0x10748 <loop+8>:       or  %o0, 0x270, %o0     ! 0x10670 <fmt>
+(gdb) ni
+0x0001074c in loop ()
+1: x/i $pc
+0x1074c <loop+12>:      mov  %l0, %o1
+(gdb) ni
+0x00010750 in loop ()
+1: x/i $pc
+0x10750 <loop+16>:      call  0x20a58 <printf@plt>
+0x10754 <loop+20>:      mov  %l4, %o2
+(gdb) p/x $l0
+$1 = 0xffff
+(gdb) ni
+0x00010754 in loop ()
+1: x/i $pc
+0x10754 <loop+20>:      mov  %l4, %o2
+(gdb) ni
+(no debugging symbols found)
+Checksum is:    0x0000ffff      Value of Input Register is:     0xaaaa8c01       before data is fed.
+
+Breakpoint 2, 0x0001079c in done ()
+1: x/i $pc
+0x1079c <done>: andn  %l0, %l3, %l0
+(gdb) ni
+0x000107a0 in done ()
+1: x/i $pc
+0x107a0 <done+4>:       sethi  %hi(0x10400), %o0
+(gdb) ni
+0x000107a4 in done ()
+1: x/i $pc
+0x107a4 <done+8>:       or  %o0, 0x2c1, %o0     ! 0x106c1 <fmt1>
+(gdb) ni
+0x000107a8 in done ()
+1: x/i $pc
+0x107a8 <done+12>:      mov  %l0, %o1
+(gdb) ni
+0x000107ac in done ()
+1: x/i $pc
+0x107ac <done+16>:      call  0x20a58 <printf@plt>
+0x107b0 <done+20>:      mov  %l4, %o2
+(gdb) p/x $l0
+$2 = 0xeed4
+(gdb) ni
+0x000107b0 in done ()
+1: x/i $pc
+0x107b0 <done+20>:      mov  %l4, %o2
+(gdb) ni
+Checksum is:    0x0000eed4      Value of Input Register is:     0x00000000       after data is fed.
+0x000107b4 in done ()
+1: x/i $pc
+0x107b4 <done+24>:      b  0x107b8 <loop1>
+0x107b8 <loop1>:        clr  %l1
+(gdb) ni
+
+Breakpoint 3, 0x000107b8 in loop1 ()
+1: x/i $pc
+0x107b8 <loop1>:        clr  %l1
+(gdb) ni
+
+Breakpoint 3, 0x000107b8 in loop1 ()
+1: x/i $pc
+0x107b8 <loop1>:        clr  %l1
+(gdb) ni
+0x000107bc in loop1 ()
+1: x/i $pc
+0x107bc <loop1+4>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x000107c0 in loop1 ()
+1: x/i $pc
+0x107c0 <loop1+8>:      or  %o0, 0x270, %o0     ! 0x10670 <fmt>
+(gdb) ni
+0x000107c4 in loop1 ()
+1: x/i $pc
+0x107c4 <loop1+12>:     mov  %l0, %o1
+(gdb) ni
+0x000107c8 in loop1 ()
+1: x/i $pc
+0x107c8 <loop1+16>:     call  0x20a58 <printf@plt>
+0x107cc <loop1+20>:     mov  %l5, %o2
+(gdb) p/x $l0
+$3 = 0xeed4
+(gdb) ni
+0x000107cc in loop1 ()
+1: x/i $pc
+0x107cc <loop1+20>:     mov  %l5, %o2
+(gdb) ni
+Checksum is:    0x0000eed4      Value of Input Register is:     0xff001234       before data is fed.
+
+Breakpoint 4, 0x00010814 in done1 ()
+1: x/i $pc
+0x10814 <done1>:        andn  %l0, %l3, %l0
+(gdb) ni
+0x00010818 in done1 ()
+1: x/i $pc
+0x10818 <done1+4>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x0001081c in done1 ()
+1: x/i $pc
+0x1081c <done1+8>:      or  %o0, 0x2c1, %o0     ! 0x106c1 <fmt1>
+(gdb) ni
+0x00010820 in done1 ()
+1: x/i $pc
+0x10820 <done1+12>:     mov  %l0, %o1
+(gdb) ni
+0x00010824 in done1 ()
+1: x/i $pc
+0x10824 <done1+16>:     call  0x20a58 <printf@plt>
+0x10828 <done1+20>:     mov  %l5, %o2
+(gdb) p/x $l0
+$4 = 0x8e2f
+(gdb) ni
+0x00010828 in done1 ()
+1: x/i $pc
+0x10828 <done1+20>:     mov  %l5, %o2
+(gdb) ni
+Checksum is:    0x00008e2f      Value of Input Register is:     0x00000000       after data is fed.
+0x0001082c in done1 ()
+1: x/i $pc
+0x1082c <done1+24>:     b  0x10830 <loop2>
+0x10830 <loop2>:        clr  %l1
+(gdb) ni
+
+Breakpoint 5, 0x00010830 in loop2 ()
+1: x/i $pc
+0x10830 <loop2>:        clr  %l1
+(gdb) ni
+
+Breakpoint 5, 0x00010830 in loop2 ()
+1: x/i $pc
+0x10830 <loop2>:        clr  %l1
+(gdb) ni
+0x00010834 in loop2 ()
+1: x/i $pc
+0x10834 <loop2+4>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x00010838 in loop2 ()
+1: x/i $pc
+0x10838 <loop2+8>:      or  %o0, 0x270, %o0     ! 0x10670 <fmt>
+(gdb) ni
+0x0001083c in loop2 ()
+1: x/i $pc
+0x1083c <loop2+12>:     mov  %l0, %o1
+(gdb) ni
+0x00010840 in loop2 ()
+1: x/i $pc
+0x10840 <loop2+16>:     call  0x20a58 <printf@plt>
+0x10844 <loop2+20>:     mov  %l6, %o2
+(gdb) p/x $l0
+$5 = 0x8e2f
+(gdb) ni
+0x00010844 in loop2 ()
+1: x/i $pc
+0x10844 <loop2+20>:     mov  %l6, %o2
+(gdb) ni
+Checksum is:    0x00008e2f      Value of Input Register is:     0x13579bdf       before data is fed.
+
+Breakpoint 6, 0x0001088c in done2 ()
+1: x/i $pc
+0x1088c <done2>:        andn  %l0, %l3, %l0
+(gdb) ni
+0x00010890 in done2 ()
+1: x/i $pc
+0x10890 <done2+4>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x00010894 in done2 ()
+1: x/i $pc
+0x10894 <done2+8>:      or  %o0, 0x2c1, %o0     ! 0x106c1 <fmt1>
+(gdb) ni
+0x00010898 in done2 ()
+1: x/i $pc
+0x10898 <done2+12>:     mov  %l0, %o1
+(gdb) ni
+0x0001089c in done2 ()
+1: x/i $pc
+0x1089c <done2+16>:     call  0x20a58 <printf@plt>
+0x108a0 <done2+20>:     mov  %l6, %o2
+(gdb) p/x $l0
+$6 = 0x3278
+(gdb) ni
+0x000108a0 in done2 ()
+1: x/i $pc
+0x108a0 <done2+20>:     mov  %l6, %o2
+(gdb) ni
+Checksum is:    0x00003278      Value of Input Register is:     0x00000000       after data is fed.
+0x000108a4 in done2 ()
+1: x/i $pc
+0x108a4 <done2+24>:     b  0x108a8 <loop3>
+0x108a8 <loop3>:        clr  %l1
+(gdb) ni
+
+Breakpoint 7, 0x000108a8 in loop3 ()
+1: x/i $pc
+0x108a8 <loop3>:        clr  %l1
+(gdb) ni
+
+Breakpoint 7, 0x000108a8 in loop3 ()
+1: x/i $pc
+0x108a8 <loop3>:        clr  %l1
+(gdb) ni
+0x000108ac in loop3 ()
+1: x/i $pc
+0x108ac <loop3+4>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x000108b0 in loop3 ()
+1: x/i $pc
+0x108b0 <loop3+8>:      or  %o0, 0x270, %o0     ! 0x10670 <fmt>
+(gdb) ni
+0x000108b4 in loop3 ()
+1: x/i $pc
+0x108b4 <loop3+12>:     mov  %l0, %o1
+(gdb) ni
+0x000108b8 in loop3 ()
+1: x/i $pc
+0x108b8 <loop3+16>:     call  0x20a58 <printf@plt>
+0x108bc <loop3+20>:     mov  %l7, %o2
+(gdb) $ p/x $l0
+$7 = 0x3278
+(gdb) ni
+0x000108bc in loop3 ()
+1: x/i $pc
+0x108bc <loop3+20>:     mov  %l7, %o2
+(gdb) ni
+Checksum is:    0x00003278      Value of Input Register is:     0xc8b4ae32       before data is fed.
+
+Breakpoint 8, 0x00010904 in done3 ()
+1: x/i $pc
+0x10904 <done3>:        andn  %l0, %l3, %l0
+(gdb) ni
+0x00010908 in done3 ()
+1: x/i $pc
+0x10908 <done3+4>:      sethi  %hi(0x10400), %o0
+(gdb) ni
+0x0001090c in done3 ()
+1: x/i $pc
+0x1090c <done3+8>:      or  %o0, 0x2c1, %o0     ! 0x106c1 <fmt1>
+(gdb) ni
+0x00010910 in done3 ()
+1: x/i $pc
+0x10910 <done3+12>:     mov  %l0, %o1
+(gdb) ni
+0x00010914 in done3 ()
+1: x/i $pc
+0x10914 <done3+16>:     call  0x20a58 <printf@plt>
+0x10918 <done3+20>:     mov  %l7, %o2
+(gdb) p/x $l0
+$8 = 0x66b8
+(gdb) ni
+0x00010918 in done3 ()
+1: x/i $pc
+0x10918 <done3+20>:     mov  %l7, %o2
+(gdb) ni
+Checksum is:    0x000066b8      Value of Input Register is:     0x00000000       after data is fed.
+0x0001091c in done3 ()
+1: x/i $pc
+0x1091c <done3+24>:     mov  1, %g1
+(gdb) ni
+0x00010920 in done3 ()
+1: x/i $pc
+0x10920 <done3+28>:     ta  0
+(gdb) ni
+
+Program exited with code 0125.
+(gdb) quit
+sh-3.00$ exit
+exit
+
+script done on Tue Oct 13 17:15:46 2015
